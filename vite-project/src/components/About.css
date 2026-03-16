@@ -1,0 +1,107 @@
+/* About Section */
+.about-section {
+    padding: 8rem 0;
+    background: var(--bg-dark);
+    /* Uses variable */
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    /* Uses variable */
+    position: relative;
+    display: inline-block;
+}
+
+.about-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    /* Uses variable */
+    margin-bottom: 3rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.about-bio {
+    font-size: 1.25rem;
+    line-height: 1.9;
+    color: #e2e8f0;
+    font-weight: 300;
+}
+
+[data-theme="light"] .about-bio {
+    color: #334155;
+    /* Dark grey for bio in light mode */
+    font-weight: 400;
+}
+
+.highlight-white {
+    color: #fff;
+    font-weight: 700;
+}
+
+[data-theme="light"] .highlight-white {
+    color: #000;
+    /* Invert highlight text */
+}
+
+.gradient-multi {
+    font-weight: 700;
+    background: linear-gradient(to right, #6ec3f4, #3a3aff, #ff56f6, #ffaaaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: gradientForwards 5s linear infinite;
+}
+
+[data-theme="light"] .gradient-multi {
+    /* Slightly darker gradient for light mode */
+    background: linear-gradient(to right, #0ea5e9, #2563eb, #d946ef, #f43f5e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientForwards {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.code-wrapper {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--neon-primary);
+    margin-top: 2rem;
+    font-size: 1.1rem;
+
+    background: rgba(255, 255, 255, 0.05);
+    /* Dark mode bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+[data-theme="light"] .code-wrapper {
+    background: #f1f5f9;
+    /* Light grey bg */
+    border: 1px solid #cbd5e1;
+    color: #0284c7;
+    /* Darker blue code text */
+}

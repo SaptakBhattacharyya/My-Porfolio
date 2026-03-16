@@ -1,0 +1,158 @@
+.resume-section {
+    padding: 100px 0;
+    position: relative;
+    background: transparent;
+}
+
+.resume-document {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.resume-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+    letter-spacing: -0.02em;
+}
+
+.resume-header h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 1rem;
+}
+
+.contact-info, .social-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.contact-info span, .social-links span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.resume-divider {
+    border: 0;
+    height: 1px;
+    background: #e2e8f0;
+    margin: 2rem 0;
+}
+
+.resume-block {
+    margin-bottom: 2rem;
+}
+
+.resume-block h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #3182ce;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.resume-block p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a5568;
+}
+
+.resume-item {
+    margin-bottom: 1.2rem;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.2rem;
+}
+
+.item-header h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+.item-date, .item-skills {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #718096;
+}
+
+.item-sub {
+    font-weight: 500;
+    color: #2b6cb0;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.skills-list p {
+    margin-bottom: 0.5rem;
+}
+
+/* Print Styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .resume-document, .resume-document * {
+        visibility: visible;
+    }
+    
+    .resume-document {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+}
+
+/* Responsive adjustments for mobile view */
+@media (max-width: 768px) {
+    .resume-document {
+        padding: 2rem 1.5rem;
+    }
+    
+    .resume-header h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-info, .social-links {
+        gap: 0.75rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}

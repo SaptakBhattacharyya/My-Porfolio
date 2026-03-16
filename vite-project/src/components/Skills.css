@@ -1,0 +1,116 @@
+/* Skills Section */
+.skills-section {
+    padding: 6rem 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-dark);
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.skills-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.skills-text p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+/* The 3D Cloud Container - "Dabba" */
+.tagcloud-wrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow:
+        0 20px 50px -10px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .tagcloud-wrapper {
+    background: rgba(255, 255, 255, 0.5);
+    /* Semi-transparent white */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow:
+        0 20px 50px -10px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Individual Tags in the Cloud */
+.tagcloud {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.tagcloud--item {
+    color: #fff;
+    /* Default dark mode text */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+[data-theme="light"] .tagcloud--item {
+    color: #334155;
+    /* Dark text for light mode */
+    text-shadow: none;
+    /* Remove neon glow for cleaner look */
+}
+
+.tagcloud--item:hover {
+    color: var(--neon-primary);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px var(--neon-primary);
+    transform: scale(1.2);
+}
+
+[data-theme="light"] .tagcloud--item:hover {
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: var(--neon-primary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .skills-text p {
+        margin: 0 auto;
+    }
+
+    .tagcloud-wrapper {
+        height: 400px;
+        margin-top: 2rem;
+    }
+}

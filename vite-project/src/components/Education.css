@@ -1,0 +1,217 @@
+/* Education Section */
+.education-section {
+    padding: 8rem 0;
+    background-color: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.education-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem;
+}
+
+/* Vertical Line for Timeline */
+.education-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--neon-primary), transparent);
+    box-shadow: 0 0 10px var(--neon-primary);
+    opacity: 0.5;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.03);
+    /* Glassmorphism base */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border */
+    border-radius: 24px;
+    padding: 3rem;
+    margin-left: 2rem;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+/* Light Mode Card */
+[data-theme="light"] .education-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.education-card:hover {
+    border-color: var(--neon-primary);
+    transform: translateX(10px) translateY(-5px);
+    box-shadow: 0 20px 50px -10px rgba(0, 242, 255, 0.15);
+    /* Neon shadow */
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] .education-card:hover {
+    background: #fff;
+    border-color: var(--neon-primary);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* The "Dot" on the timeline */
+.timeline-dot {
+    position: absolute;
+    left: -2.6rem;
+    /* Calculated relative to card margin/padding */
+    top: 3.5rem;
+    width: 20px;
+    height: 20px;
+    background: var(--bg-dark);
+    border: 4px solid var(--neon-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--neon-primary);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .timeline-dot {
+    background: #fff;
+    border-color: var(--neon-primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.education-card:hover .timeline-dot {
+    background: var(--neon-primary);
+    box-shadow: 0 0 30px var(--neon-primary);
+    transform: scale(1.2);
+}
+
+.edu-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(90deg, #fff, #cecece);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="light"] .edu-title {
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: var(--text-primary);
+}
+
+.edu-meta {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.edu-university {
+    color: var(--neon-primary);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.edu-score {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .edu-score {
+    background: #e0f2fe;
+    color: #0284c7;
+    border: 1px solid #bae6fd;
+}
+
+.edu-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d1d5db;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+[data-theme="light"] .edu-desc {
+    color: #4b5563;
+    /* Dark grey */
+    font-weight: 400;
+}
+
+/* Coursework Tags */
+.edu-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.edu-tags span {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    background: rgba(var(--neon-primary-rgb), 0.1);
+    /* Fallback */
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--neon-primary);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+[data-theme="light"] .edu-tags span {
+    background: #f0f9ff;
+    color: #0369a1;
+    border-color: #bae6fd;
+}
+
+.edu-tags span:hover {
+    background: var(--neon-primary);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.3);
+}
+
+[data-theme="light"] .edu-tags span:hover {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .education-wrapper::before {
+        left: 10px;
+    }
+
+    .education-card {
+        margin-left: 1.5rem;
+        padding: 2rem;
+    }
+
+    .timeline-dot {
+        left: -2.2rem;
+        width: 16px;
+        height: 16px;
+        top: 2.5rem;
+    }
+
+    .edu-title {
+        font-size: 1.5rem;
+    }
+}
