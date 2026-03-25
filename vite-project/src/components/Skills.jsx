@@ -39,6 +39,43 @@ const Skills = () => {
         };
     }, []);
 
+    const skillCategories = [
+        {
+            title: 'Frontend',
+            skills: [
+                { name: 'HTML5', color: '#E34F26' },
+                { name: 'CSS3', color: '#1572B6' },
+                { name: 'JavaScript', color: '#F7DF1E' },
+                { name: 'TypeScript', color: '#3178C6' },
+                { name: 'React.js', color: '#61DAFB' },
+                { name: 'Bootstrap', color: '#7952B3' },
+                { name: 'Tailwind', color: '#06B6D4' },
+            ]
+        },
+        {
+            title: 'Backend',
+            skills: [
+                { name: 'Node.js', color: '#339933' },
+                { name: 'Express', color: '#000000' },
+                { name: 'MongoDB', color: '#47A248' },
+                { name: 'Python', color: '#3776AB' },
+                { name: 'C', color: '#A8B9CC' },
+                { name: 'C++', color: '#00599C' },
+            ]
+        },
+        {
+            title: 'Tools',
+            skills: [
+                { name: 'Git', color: '#F05032' },
+                { name: 'GitHub', color: '#181717' },
+                { name: 'Figma', color: '#F24E1E' },
+                { name: 'VS Code', color: '#007ACC' },
+                { name: 'Postman', color: '#FF6C37' },
+                { name: 'Vercel', color: '#000000' },
+            ]
+        }
+    ];
+
     return (
         <section id="skills" className="skills-section">
             <div className="skills-container">
@@ -67,6 +104,47 @@ const Skills = () => {
                     {/* TagCloud SDK injects the sphere here */}
                     <span className="tagcloud-container"></span>
                 </motion.div>
+            </div>
+
+            {/* Skills Grid Below */}
+            <div className="skills-grid-section">
+                {skillCategories.map((category, catIdx) => (
+                    <motion.div
+                        key={category.title}
+                        className="skills-category"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: catIdx * 0.15 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="category-title">
+                            <span className="category-icon">{catIdx === 0 ? '🎨' : catIdx === 1 ? '⚙️' : '🛠️'}</span>
+                            {category.title}
+                        </h3>
+                        <div className="skills-grid">
+                            {category.skills.map((skill, idx) => (
+                                <motion.div
+                                    key={skill.name}
+                                    className="skill-card"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.4, delay: idx * 0.06 }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ scale: 1.05, y: -4 }}
+                                    style={{ '--skill-color': skill.color }}
+                                >
+                                    <div className="skill-card-inner">
+                                        <div className="skill-icon" style={{ background: `linear-gradient(135deg, ${skill.color}, ${skill.color}88)` }}>
+                                            {skill.name.charAt(0)}
+                                        </div>
+                                        <span className="skill-name">{skill.name}</span>
+                                    </div>
+                                    <div className="skill-glow" style={{ background: skill.color }}></div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );
