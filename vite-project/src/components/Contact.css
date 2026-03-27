@@ -1,13 +1,13 @@
 /* Contact Section */
 .contact-section {
     padding: 6rem 0;
-    background: linear-gradient(to top, #000 0%, var(--bg-dark) 100%);
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
 
 [data-theme="light"] .contact-section {
-    background: linear-gradient(to top, #cbd5e1 0%, var(--bg-dark) 100%);
+    background: transparent;
 }
 
 .contact-container {
@@ -75,7 +75,7 @@
 
 [data-theme="light"] .info-icon {
     background: #fff;
-    border-color: #cbd5e1;
+    border-color: #a7f3d0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -155,13 +155,13 @@
     border-color: var(--neon-primary);
     outline: none;
     background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
 }
 
 [data-theme="light"] .form-group input:focus,
 [data-theme="light"] .form-group textarea:focus {
     background: #fff;
-    box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.1);
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
 }
 
 .submit-btn {
@@ -223,7 +223,7 @@ footer {
     background: var(--neon-primary);
     color: #000;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
     border-color: transparent;
 }
 

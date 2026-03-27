@@ -40,10 +40,10 @@ const Certificates = () => {
             <div className="container">
                 <motion.div
                     className="section-header"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: 'spring', bounce: 0.5, duration: 0.8 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     <h2>My <span className="text-gradient">Certificates</span></h2>
                     <p>Recognitions and achievements from various tech competitions and courses.</p>
@@ -54,10 +54,11 @@ const Certificates = () => {
                         <motion.div
                             className="certificate-card"
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: index * 0.15 }}
+                            viewport={{ once: true, margin: '-50px' }}
+                            whileHover={{ scale: 1.05, rotate: 1, y: -10 }}
                             onClick={() => setSelectedImage(cert.image)}
                             style={{ cursor: 'pointer' }}
                         >

@@ -81,10 +81,10 @@ const Skills = () => {
             <div className="skills-container">
                 <motion.div
                     className="skills-text"
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, x: -80 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     <h2>My Technical <span className="text-gradient">Skills</span></h2>
                     <p>
@@ -96,10 +96,10 @@ const Skills = () => {
 
                 <motion.div
                     className="tagcloud-wrapper"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ type: 'spring', bounce: 0.5, duration: 1, delay: 0.2 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     {/* TagCloud SDK injects the sphere here */}
                     <span className="tagcloud-container"></span>
@@ -112,36 +112,34 @@ const Skills = () => {
                     <motion.div
                         key={category.title}
                         className="skills-category"
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: catIdx * 0.15 }}
-                        viewport={{ once: true }}
+                        initial={{ opacity: 0, y: 60 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ type: 'spring', bounce: 0.3, duration: 0.8, delay: catIdx * 0.15 }}
+                        viewport={{ once: true, margin: '-50px' }}
                     >
                         <h3 className="category-title">
                             <span className="category-icon">{catIdx === 0 ? '🎨' : catIdx === 1 ? '⚙️' : '🛠️'}</span>
                             {category.title}
                         </h3>
-                        <div className="skills-grid">
-                            {category.skills.map((skill, idx) => (
-                                <motion.div
-                                    key={skill.name}
-                                    className="skill-card"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: idx * 0.06 }}
-                                    viewport={{ once: true }}
-                                    whileHover={{ scale: 1.05, y: -4 }}
-                                    style={{ '--skill-color': skill.color }}
-                                >
-                                    <div className="skill-card-inner">
-                                        <div className="skill-icon" style={{ background: `linear-gradient(135deg, ${skill.color}, ${skill.color}88)` }}>
-                                            {skill.name.charAt(0)}
+                        <div className="skills-marquee-wrapper">
+                            <div className="skills-marquee">
+                                {[...category.skills, ...category.skills].map((skill, idx) => (
+                                    <motion.div
+                                        key={`${skill.name}-${idx}`}
+                                        className="skill-card"
+                                        whileHover={{ scale: 1.08, y: -6, rotateZ: 2, transition: { type: 'spring', bounce: 0.6 } }}
+                                        style={{ '--skill-color': skill.color }}
+                                    >
+                                        <div className="skill-card-inner">
+                                            <div className="skill-icon" style={{ background: `linear-gradient(135deg, ${skill.color}, ${skill.color}88)` }}>
+                                                {skill.name.charAt(0)}
+                                            </div>
+                                            <span className="skill-name">{skill.name}</span>
                                         </div>
-                                        <span className="skill-name">{skill.name}</span>
-                                    </div>
-                                    <div className="skill-glow" style={{ background: skill.color }}></div>
-                                </motion.div>
-                            ))}
+                                        <div className="skill-glow" style={{ background: skill.color }}></div>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 ))}

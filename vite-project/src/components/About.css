@@ -1,7 +1,7 @@
 /* About Section */
 .about-section {
     padding: 8rem 0;
-    background: var(--bg-dark);
+    background: transparent;
     /* Uses variable */
     position: relative;
     transition: background-color 0.3s ease;
@@ -59,7 +59,7 @@
 
 .gradient-multi {
     font-weight: 700;
-    background: linear-gradient(to right, #6ec3f4, #3a3aff, #ff56f6, #ffaaaa);
+    background: linear-gradient(to right, #34d399, #10b981, #059669, #34d399);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
@@ -68,7 +68,7 @@
 
 [data-theme="light"] .gradient-multi {
     /* Slightly darker gradient for light mode */
-    background: linear-gradient(to right, #0ea5e9, #2563eb, #d946ef, #f43f5e);
+    background: linear-gradient(to right, #047857, #059669, #10b981, #047857);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -99,9 +99,9 @@
 }
 
 [data-theme="light"] .code-wrapper {
-    background: #f1f5f9;
-    /* Light grey bg */
-    border: 1px solid #cbd5e1;
-    color: #0284c7;
-    /* Darker blue code text */
+    background: #ecfdf5;
+    /* Light gold bg */
+    border: 1px solid #a7f3d0;
+    color: #047857;
+    /* Dark gold code text */
 }

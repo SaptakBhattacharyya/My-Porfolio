@@ -13,10 +13,10 @@ const Resume = () => {
             <div className="container">
                 <motion.div
                     className="section-header no-print"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     <h2>My <span className="text-gradient">Resume</span></h2>
                     <p>A printable summary of my professional experience and skills.</p>
@@ -27,10 +27,10 @@ const Resume = () => {
 
                 <motion.div
                     className="resume-document"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, scale: 0.9, y: 50 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ type: 'spring', bounce: 0.3, duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     {/* Header */}
                     <div className="resume-header">
@@ -111,7 +111,6 @@ const Resume = () => {
                                         <span className="item-date">2025 – 2029</span>
                                     </div>
                                     <div className="item-sub">B.Tech in Computer Science & Engineering</div>
-                                    <p><strong>SGPA:</strong> 9.81</p>
                                 </div>
                             </div>
 
@@ -181,7 +180,7 @@ const Resume = () => {
                             <div className="resume-block">
                                 <h3>ACHIEVEMENTS</h3>
                                 <ul>
-                                    <li>Achieved <strong>9.81 SGPA</strong> in First Year of Bachelor of Technology, reflecting strong academic excellence.</li>
+                                    <li>Successfully completing the First Year of Bachelor of Technology with academic excellence.</li>
                                     <li><strong>ElectroSphere 2K26 Winner</strong> (1st Place) — TechX Club, Swaminarayan University (Jan 2026).</li>
                                     <li>Google Cloud — <strong>Introduction to Generative AI</strong> certification (Dec 2025).</li>
                                     <li>SoloLearn — <strong>Certification on C Programming</strong> (Oct 2025).</li>

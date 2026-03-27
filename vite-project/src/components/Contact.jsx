@@ -9,10 +9,10 @@ const Contact = () => {
             <div className="container contact-container">
                 <motion.div
                     className="section-header"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: 'spring', bounce: 0.5, duration: 0.8 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     <h2>Get In <span className="text-gradient">Touch</span></h2>
                     <p>Have a project in mind or just want to say hi? Send me a message!</p>
@@ -22,10 +22,10 @@ const Contact = () => {
                     {/* Contact Info Side */}
                     <motion.div
                         className="contact-info-side"
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        viewport={{ once: true }}
+                        initial={{ opacity: 0, x: -80 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0.2 }}
+                        viewport={{ once: true, margin: '-50px' }}
                     >
                         <h3>Let's Chat</h3>
                         <p className="contact-desc">
@@ -83,10 +83,10 @@ const Contact = () => {
                     {/* Contact Form Side */}
                     <motion.form
                         className="contact-form"
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                        viewport={{ once: true }}
+                        initial={{ opacity: 0, x: 80 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0.3 }}
+                        viewport={{ once: true, margin: '-50px' }}
                         onSubmit={(e) => e.preventDefault()}
                     >
                         <div className="form-group">

@@ -7,7 +7,7 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
-    background: var(--bg-dark);
+    background: transparent;
 }
 
 .skills-container {
@@ -76,7 +76,7 @@
     padding: 0.5rem 1rem;
     border-radius: 4px;
     transition: all 0.3s ease;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
 }
 
 [data-theme="light"] .tagcloud--item {
@@ -163,10 +163,36 @@
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.1), transparent);
 }
 
-.skills-grid {
+.skills-marquee-wrapper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    padding: 1rem 0;
+    /* Fade edges to transparent seamlessly */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.skills-marquee {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
+    white-space: nowrap;
+    width: max-content;
+    gap: 1.5rem;
+    animation: marquee-scroll 20s linear infinite;
+}
+
+/* Reverse alternating rows for visual variety */
+.skills-category:nth-child(even) .skills-marquee {
+    animation-direction: reverse;
+}
+
+.skills-marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); }
 }
 
 /* Premium Skill Cards */
@@ -186,7 +212,7 @@
     inset: 0;
     border-radius: 14px;
     padding: 1.5px;
-    background: linear-gradient(135deg, var(--skill-color, #00ffff) 0%, transparent 50%, var(--skill-color, #00ffff) 100%);
+    background: linear-gradient(135deg, var(--skill-color, #10b981) 0%, transparent 50%, var(--skill-color, #10b981) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -283,8 +309,8 @@
 
 /* Mobile Responsive for grid */
 @media (max-width: 600px) {
-    .skills-grid {
-        gap: 0.6rem;
+    .skills-marquee {
+        gap: 1rem;
     }
 
     .skill-card-inner {

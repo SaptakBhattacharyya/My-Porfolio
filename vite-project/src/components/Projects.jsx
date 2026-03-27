@@ -6,6 +6,15 @@ import './Projects.css';
 const Projects = () => {
     const projects = [
         {
+            title: 'Med-Remind',
+            description: 'A full-stack healthcare reminder application helping patients manage their medications and health logs. Features auth, medicine tracking, and a dashboard.',
+            tags: ['React', 'Node.js', 'MongoDB', 'Full-Stack'],
+            image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
+            github: 'https://github.com/codinggita/medremind.git',
+            demo: 'https://medremind-z2yo.vercel.app/'
+        },
+
+        {
             title: 'UNTUCKit Clone',
             description: 'A responsive e-commerce replica of the famous clothing brand UNTUCKit. Features product filtering, cart functionality, and a seamless checkout UI.',
             tags: ['HTML/CSS', 'JavaScript', 'E-commerce'],
@@ -36,10 +45,10 @@ const Projects = () => {
             <div className="container">
                 <motion.div
                     className="section-header"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ type: 'spring', bounce: 0.5, duration: 0.8 }}
+                    viewport={{ once: true, margin: '-50px' }}
                 >
                     <h2>Featured <span className="text-gradient">Projects</span></h2>
                     <p>A selection of my recent work in web and mobile development.</p>
@@ -50,10 +59,11 @@ const Projects = () => {
                         <motion.div
                             className="project-card"
                             key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: index * 0.2 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 0, y: 80, rotateX: 10 }}
+                            animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                            transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: index * 0.15 }}
+                            viewport={{ once: true, margin: '-50px' }}
+                            whileHover={{ y: -15, scale: 1.02, transition: { type: 'spring', bounce: 0.6 } }}
                         >
                             <div className="card-image">
                                 <img src={project.image} alt={project.title} />

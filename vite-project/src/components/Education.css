@@ -1,7 +1,7 @@
 /* Education Section */
 .education-section {
     padding: 8rem 0;
-    background-color: var(--bg-dark);
+    background-color: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -50,7 +50,7 @@
 .education-card:hover {
     border-color: var(--neon-primary);
     transform: translateX(10px) translateY(-5px);
-    box-shadow: 0 20px 50px -10px rgba(0, 242, 255, 0.15);
+    box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.15);
     /* Neon shadow */
     background: rgba(255, 255, 255, 0.05);
 }
@@ -137,9 +137,9 @@
 }
 
 [data-theme="light"] .edu-score {
-    background: #e0f2fe;
-    color: #0284c7;
-    border: 1px solid #bae6fd;
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
 }
 
 .edu-desc {
@@ -170,24 +170,24 @@
     border-radius: 50px;
     background: rgba(var(--neon-primary-rgb), 0.1);
     /* Fallback */
-    background: rgba(0, 242, 255, 0.1);
+    background: rgba(16, 185, 129, 0.1);
     color: var(--neon-primary);
-    border: 1px solid rgba(0, 242, 255, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.2);
     font-weight: 500;
     transition: all 0.3s ease;
 }
 
 [data-theme="light"] .edu-tags span {
-    background: #f0f9ff;
-    color: #0369a1;
-    border-color: #bae6fd;
+    background: #ecfdf5;
+    color: #047857;
+    border-color: #a7f3d0;
 }
 
 .edu-tags span:hover {
     background: var(--neon-primary);
     color: #000;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 242, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
 }
 
 [data-theme="light"] .edu-tags span:hover {

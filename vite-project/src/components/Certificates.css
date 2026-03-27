@@ -2,7 +2,7 @@
 .certificates-section {
     padding: 8rem 0;
     position: relative;
-    background: var(--bg-dark);
+    background: transparent;
 }
 
 .certificates-grid {
@@ -121,13 +121,13 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
-    color: #000;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
     font-weight: 700;
     padding: 0.4rem 0.8rem;
     border-radius: 50px;
     font-size: 0.8rem;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
     z-index: 10;
 }
 

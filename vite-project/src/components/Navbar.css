@@ -46,7 +46,7 @@
     font-weight: 700;
 
     /* Gradient matches theme automatically via text-gradient logic or custom */
-    background: linear-gradient(135deg, #a5f3fc 0%, #6366f1 50%, #d946ef 100%);
+    background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.3px;
@@ -55,7 +55,7 @@
 
 [data-theme="light"] .logo-text {
     /* Bold dark gradient */
-    background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%);
+    background: linear-gradient(135deg, #047857 0%, #059669 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
