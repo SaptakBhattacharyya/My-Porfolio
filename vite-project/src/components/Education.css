@@ -43,8 +43,8 @@
 /* Light Mode Card */
 [data-theme="light"] .education-card {
     background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
 .education-card:hover {
@@ -58,7 +58,7 @@
 [data-theme="light"] .education-card:hover {
     background: #fff;
     border-color: var(--neon-primary);
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 /* The "Dot" on the timeline */

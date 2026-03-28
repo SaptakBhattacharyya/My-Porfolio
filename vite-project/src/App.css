@@ -47,9 +47,10 @@
 }
 
 [data-theme="light"] .hero-text h1 {
-  /* Light mode gradient - strong darks */
-  background: linear-gradient(to bottom right, #000000, #4b5563);
+  /* Light mode gradient - cool near-black to slate */
+  background: linear-gradient(to bottom right, #0F172A, #475569);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -100,7 +101,7 @@
   background: var(--neon-primary);
   color: #fff;
   border-color: var(--neon-primary);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
 }
 
 .btn-primary:hover {
@@ -111,7 +112,7 @@
 [data-theme="light"] .btn-primary:hover {
   background: #fff;
   color: var(--neon-primary);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.3);
 }
 
 .btn-outline {
@@ -162,7 +163,7 @@
 [data-theme="light"] .hero-image-wrapper {
   border-color: rgba(0, 0, 0, 0.1);
   background: #fff;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.06);
 }
 
 .hero-image {

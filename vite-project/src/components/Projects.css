@@ -47,8 +47,8 @@
 
 [data-theme="light"] .project-card {
     background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
 .project-card:hover {
@@ -61,7 +61,7 @@
 [data-theme="light"] .project-card:hover {
     background: #fff;
     border-color: var(--neon-primary);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 .card-image {

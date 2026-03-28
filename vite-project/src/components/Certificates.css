@@ -24,8 +24,8 @@
 
 [data-theme="light"] .certificate-card {
     background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
 .certificate-card:hover {
@@ -38,7 +38,7 @@
 [data-theme="light"] .certificate-card:hover {
     background: #fff;
     border-color: var(--neon-primary);
-    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+    box-shadow: none;
 }
 
 .cert-image-wrapper {

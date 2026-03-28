@@ -110,8 +110,8 @@
 
 [data-theme="light"] .contact-form {
     background: #fff;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: none;
 }
 
 .form-group {

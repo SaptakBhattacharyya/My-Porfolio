@@ -22,27 +22,29 @@
   --font-body: 'Plus Jakarta Sans', sans-serif;
 }
 
-/* Light Theme Overrides - High Contrast */
+/* Light Theme Overrides - Modern Dev Indigo Palette */
 [data-theme="light"] {
-  --neon-primary: #059669;
-  /* Dark emerald for better visibility on white */
-  --neon-secondary: #047857;
-  --neon-accent: #10b981;
+  --neon-primary: #4F46E5;
+  /* Vibrant Indigo - the premium accent */
+  --neon-secondary: #4338CA;
+  /* Deeper Indigo for hover/secondary states */
+  --neon-accent: #6366F1;
+  /* Lighter Indigo for subtle accents */
 
-  --bg-dark: #ffffff;
-  /* Pure white background */
-  --bg-card: #f3f4f6;
-  /* Light grey for cards */
-  --bg-glass: rgba(0, 0, 0, 0.05);
+  --bg-dark: #F8FAFC;
+  /* Icy cool slate background */
+  --bg-card: #ffffff;
+  /* Pure white for maximum card pop */
+  --bg-glass: rgba(79, 70, 229, 0.04);
 
-  --text-primary: #111827;
-  /* Near black for main text */
-  --text-secondary: #4b5563;
-  /* Dark grey for secondary */
-  --text-muted: #6b7280;
+  --text-primary: #0F172A;
+  /* Near-black, cool-toned for headings */
+  --text-secondary: #475569;
+  /* Slate for body text */
+  --text-muted: #64748B;
 
-  --card-border: rgba(0, 0, 0, 0.1);
-  --input-bg: #e5e7eb;
+  --card-border: #E2E8F0;
+  --input-bg: #F1F5F9;
 }
 
 * {
@@ -55,6 +57,19 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Light mode subtle top glow */
+[data-theme="light"] body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 body {
@@ -119,6 +134,7 @@ h6 {
   background: linear-gradient(135deg, #000 0%, #475569 100%);
   /* Black to Grey gradient */
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -178,8 +194,8 @@ h6 {
 
 [data-theme="light"] .grid-overlay {
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.015) 1px, transparent 1px);
 }
 
 .interactive-blob {
