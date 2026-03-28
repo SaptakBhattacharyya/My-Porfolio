@@ -186,34 +186,201 @@
     margin-bottom: 0.3rem;
 }
 
-/* Print Styles */
+/* Project Links Row */
+.resume-project-links {
+    font-size: 0.78rem;
+    color: #64748b;
+    margin-top: 0.3rem;
+}
+
+.resume-project-links a {
+    color: #2d3748;
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.resume-project-links a:hover {
+    color: #4F46E5;
+}
+
+/* Hackathon win badge */
+.resume-win-badge {
+    color: #4F46E5;
+    font-weight: 700;
+}
+
+/* Print / PDF - A4 Single Page */
 @media print {
+    @page {
+        size: A4 portrait;
+        margin: 5mm 8mm;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+    }
+
     body * {
         visibility: hidden;
     }
-    
+
     .resume-document, .resume-document * {
         visibility: visible;
-    }
-    
-    .resume-document {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        padding: 1.5rem;
-        margin: 0;
-        box-shadow: none;
-        background: transparent;
     }
 
     .no-print {
         display: none !important;
     }
 
+    .resume-section {
+        padding: 0 !important;
+    }
+
+    .resume-document {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: #fff !important;
+        font-size: 7pt;
+        color: #1a1a1a;
+        line-height: 1.25;
+    }
+
+    .resume-header {
+        margin-bottom: 2pt;
+        padding-bottom: 2pt;
+        border-bottom: 1.5pt solid #1a1a1a;
+    }
+
+    .resume-header h1 {
+        font-size: 13pt;
+        margin-bottom: 1pt;
+        letter-spacing: 0.04em;
+    }
+
+    .resume-contact-row {
+        font-size: 7pt;
+        gap: 8pt;
+        margin-bottom: 1pt;
+    }
+
+    .resume-links-bar {
+        gap: 4pt;
+        padding: 2pt 0;
+        margin-bottom: 1pt;
+    }
+
     .resume-links-bar a {
-        border: 1px solid #999;
-        color: #333;
+        font-size: 6pt;
+        padding: 1pt 4pt;
+        border: 0.75pt solid #555 !important;
+        color: #333 !important;
+        border-radius: 2pt;
+        text-decoration: none;
+    }
+
+    .resume-divider {
+        margin: 2pt 0 3pt;
+        height: 0.75pt;
+        background: #aaa;
+    }
+
+    .resume-two-col {
+        gap: 8pt;
+        grid-template-columns: 1fr 1.35fr;
+    }
+
+    .resume-col-left {
+        padding-right: 6pt;
+        border-right: 0.5pt solid #ddd;
+    }
+
+    .resume-col-right {
+        padding-left: 2pt;
+    }
+
+    .resume-block {
+        margin-bottom: 4pt;
+    }
+
+    .resume-block h3 {
+        font-size: 7pt;
+        letter-spacing: 0.06em;
+        padding-bottom: 1pt;
+        margin-bottom: 2pt;
+        border-bottom: 1pt solid #1a1a1a;
+    }
+
+    .resume-block p {
+        font-size: 6.5pt;
+        line-height: 1.25;
+        margin-bottom: 0.5pt;
+    }
+
+    .resume-block ul {
+        font-size: 6.5pt;
+        line-height: 1.25;
+        padding-left: 9pt;
+        margin: 1pt 0 1.5pt;
+    }
+
+    .resume-block ul li {
+        margin-bottom: 0.5pt;
+    }
+
+    .resume-skills-group {
+        margin-bottom: 1.5pt;
+    }
+
+    .resume-skills-group p {
+        font-size: 6.5pt;
+        margin-bottom: 0;
+    }
+
+    .cert-list {
+        columns: 2;
+        column-gap: 6pt;
+        font-size: 6.5pt;
+    }
+
+    .resume-item {
+        margin-bottom: 3pt;
+        page-break-inside: avoid;
+    }
+
+    .item-header h4 {
+        font-size: 7pt;
+    }
+
+    .item-date, .item-skills {
+        font-size: 6pt;
+    }
+
+    .item-sub {
+        font-size: 6.5pt;
+        margin-bottom: 1pt;
+    }
+
+    .resume-project-links {
+        font-size: 6pt;
+        margin-top: 1pt;
+    }
+
+    .resume-project-links a {
+        color: #1a1a1a !important;
+    }
+
+    .resume-win-badge {
+        color: #1a1a1a !important;
     }
 }
 
@@ -222,7 +389,7 @@
     .resume-document {
         padding: 1.5rem 1rem;
     }
-    
+
     .resume-header h1 {
         font-size: 1.8rem;
     }
@@ -243,7 +410,7 @@
     .resume-col-right {
         padding-left: 0;
     }
-    
+
     .resume-contact-row, .resume-links-bar {
         gap: 0.5rem;
     }
