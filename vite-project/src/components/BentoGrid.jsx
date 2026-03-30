@@ -35,7 +35,7 @@ const itemVariants = {
 };
 
 const carouselProjects = [
-  { title: 'Med-Remind', tag: 'Full-Stack · React · Node', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop' },
+  { title: 'Med-Remind', tag: 'Full-Stack · React · Node', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
   { title: 'UNTUCKit Clone', tag: 'E-Commerce · JavaScript', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop' },
   { title: 'Litecoin Web3', tag: 'React · Web3', image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=600&auto=format&fit=crop' },
   { title: 'Decure Interior', tag: 'HTML · UI/UX · Animation', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop' },
@@ -63,7 +63,7 @@ const BentoGrid = () => {
     { id: 'education', title: 'Education', desc: 'B.Tech CSE @ Swaminarayan University. (Currently Pursuing).', span: 'col-span-1 row-span-1', type: 'education', icon: <GraduationCap size={28} /> },
     { id: 'certificates', title: 'Certificates', desc: 'Certified in MERN Stack, UI Design, and Advanced Algorithms.', span: 'col-span-1 row-span-1', type: 'certificates', icon: <Award size={28} /> },
     { id: 'contact', title: 'Contact Me', desc: 'Available for freelance & Internships. Reach out now.', span: 'col-span-1 row-span-1', type: 'contact', icon: <Mail size={28} /> },
-    { id: 'resume', title: 'Resume', desc: 'Download my latest professional CV (PDF).', span: 'col-span-1 row-span-1', type: 'resume', icon: <FileText size={28} /> },
+    { id: 'tech', title: 'Core Stack', desc: '', span: 'col-span-1 row-span-1', type: 'tech' },
   ];
 
   const handleBoxClick = (id) => {
@@ -102,8 +102,8 @@ const BentoGrid = () => {
             onClick={() => handleBoxClick(item.id)}
           >
             {item.type === 'hero' && (
-              <div className="bento-hero-greeting">
-                HELLO <span className="greeting-wave">👋</span>
+              <div className="bento-hero-greeting" style={{ letterSpacing: '-1px', opacity: '0.04' }}>
+                BUILDING DIGITAL <span className="greeting-wave" style={{ opacity: '0.3' }}>EXPERIENCES</span>
               </div>
             )}
             <div className="bento-card-inner">
@@ -146,6 +146,14 @@ const BentoGrid = () => {
                       <span key={i} className={`carousel-dot${i === carouselIndex ? ' active' : ''}`} />
                     ))}
                   </div>
+                </div>
+              )}
+              {item.type === 'tech' && (
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.8rem', width: '100%', marginBottom: '1.5rem', marginTop: 'auto' }}>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.8rem', borderRadius: '12px', textAlign: 'center', fontSize: '0.8rem', fontWeight: '500', color: 'rgba(255,255,255,0.9)' }}>React.js</div>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.8rem', borderRadius: '12px', textAlign: 'center', fontSize: '0.8rem', fontWeight: '500', color: 'rgba(255,255,255,0.9)' }}>Node.js</div>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.8rem', borderRadius: '12px', textAlign: 'center', fontSize: '0.8rem', fontWeight: '500', color: 'rgba(255,255,255,0.9)' }}>Express</div>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)', padding: '0.8rem', borderRadius: '12px', textAlign: 'center', fontSize: '0.8rem', fontWeight: '500', color: 'rgba(255,255,255,0.9)' }}>MongoDB</div>
                 </div>
               )}
               {item.icon && (

@@ -28,7 +28,7 @@
     font-size: 2rem;
     color: #fff;
     margin-bottom: 1rem;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
 }
 
 [data-theme="light"] .contact-info-side h3 {
@@ -75,7 +75,7 @@
 
 [data-theme="light"] .info-icon {
     background: #fff;
-    border-color: #a7f3d0;
+    border-color: #d4a853;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -138,7 +138,7 @@
     border-radius: 12px;
     padding: 1rem;
     color: #fff;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -155,13 +155,13 @@
     border-color: var(--neon-primary);
     outline: none;
     background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 15px rgba(184, 134, 11, 0.1);
 }
 
 [data-theme="light"] .form-group input:focus,
 [data-theme="light"] .form-group textarea:focus {
     background: #fff;
-    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 0 2px rgba(184, 134, 11, 0.15);
 }
 
 .submit-btn {
@@ -223,7 +223,7 @@ footer {
     background: var(--neon-primary);
     color: #000;
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
     border-color: transparent;
 }
 

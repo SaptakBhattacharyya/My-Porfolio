@@ -17,7 +17,7 @@ const GlitterCursor = () => {
 
     // Particle system
     const particles = [];
-    const colors = ['#34d399', '#10b981', '#059669', '#fff'];
+    const colors = ['#daa520', '#b8860b', '#8b6508', '#fff'];
 
     const addParticle = (x, y) => {
       // Add 2-3 particles per movement

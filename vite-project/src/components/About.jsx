@@ -46,9 +46,9 @@ const About = () => {
                         <Typewriter
                             options={{
                                 strings: [
-                                    '<span style="color: #10b981">const</span> <span style="color: #34d399">developer</span> = <span style="color: #a7f3d0">"Creative"</span>;',
-                                    '<span style="color: #10b981">while</span>(<span style="color: #34d399">alive</span>) { <span style="color: #a7f3d0">code</span>(); }',
-                                    '<span style="color: #10b981">return</span> <span style="color: #a7f3d0">"Innovation"</span>;'
+                                    '<span style="color: #b8860b">const</span> <span style="color: #daa520">developer</span> = <span style="color: #d4a853">"Creative"</span>;',
+                                    '<span style="color: #b8860b">while</span>(<span style="color: #daa520">alive</span>) { <span style="color: #d4a853">code</span>(); }',
+                                    '<span style="color: #b8860b">return</span> <span style="color: #d4a853">"Innovation"</span>;'
                                 ],
                                 autoStart: true,
                                 loop: true,

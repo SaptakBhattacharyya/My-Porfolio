@@ -83,7 +83,7 @@
     font-size: 1.25rem;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-heading);
 }
 
 .cert-content p {
@@ -121,13 +121,13 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%);
     color: #fff;
     font-weight: 700;
     padding: 0.4rem 0.8rem;
     border-radius: 50px;
     font-size: 0.8rem;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
     z-index: 10;
 }
 

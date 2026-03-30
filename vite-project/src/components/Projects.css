@@ -12,7 +12,7 @@
 }
 
 .section-header h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 3.5rem;
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -121,7 +121,7 @@
     align-items: center;
     transform: translateY(20px);
     transition: all 0.3s ease;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
 }
 
 .project-card:hover .view-btn {
@@ -169,13 +169,13 @@
 
     background: rgba(255, 255, 255, 0.05);
     color: var(--neon-primary);
-    border: 1px solid rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(184, 134, 11, 0.15);
 }
 
 [data-theme="light"] .project-tag {
-    background: #ecfdf5;
-    color: #047857;
-    border: 1px solid #a7f3d0;
+    background: #e8d5a3;
+    color: #6e5005;
+    border: 1px solid #d4a853;
 }
 
 /* Links */

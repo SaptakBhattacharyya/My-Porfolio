@@ -50,7 +50,7 @@
 .education-card:hover {
     border-color: var(--neon-primary);
     transform: translateX(10px) translateY(-5px);
-    box-shadow: 0 20px 50px -10px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 20px 50px -10px rgba(184, 134, 11, 0.15);
     /* Neon shadow */
     background: rgba(255, 255, 255, 0.05);
 }
@@ -90,7 +90,7 @@
 }
 
 .edu-title {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 700;
     color: #fff;
@@ -107,7 +107,7 @@
 }
 
 .edu-meta {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
@@ -137,9 +137,9 @@
 }
 
 [data-theme="light"] .edu-score {
-    background: #ecfdf5;
-    color: #047857;
-    border: 1px solid #a7f3d0;
+    background: #e8d5a3;
+    color: #6e5005;
+    border: 1px solid #d4a853;
 }
 
 .edu-desc {
@@ -170,24 +170,24 @@
     border-radius: 50px;
     background: rgba(var(--neon-primary-rgb), 0.1);
     /* Fallback */
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(184, 134, 11, 0.1);
     color: var(--neon-primary);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(184, 134, 11, 0.2);
     font-weight: 500;
     transition: all 0.3s ease;
 }
 
 [data-theme="light"] .edu-tags span {
-    background: #ecfdf5;
-    color: #047857;
-    border-color: #a7f3d0;
+    background: #e8d5a3;
+    color: #6e5005;
+    border-color: #d4a853;
 }
 
 .edu-tags span:hover {
     background: var(--neon-primary);
     color: #000;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
 }
 
 [data-theme="light"] .edu-tags span:hover {

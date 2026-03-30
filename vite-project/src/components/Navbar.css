@@ -41,12 +41,12 @@
 }
 
 .logo-text {
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 700;
 
     /* Gradient matches theme automatically via text-gradient logic or custom */
-    background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+    background: linear-gradient(135deg, #daa520 0%, #b8860b 50%, #8b6508 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.3px;
@@ -55,7 +55,7 @@
 
 [data-theme="light"] .logo-text {
     /* Bold dark gradient */
-    background: linear-gradient(135deg, #047857 0%, #059669 100%);
+    background: linear-gradient(135deg, #6e5005 0%, #8b6508 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -70,7 +70,7 @@
 }
 
 .nav-link {
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);

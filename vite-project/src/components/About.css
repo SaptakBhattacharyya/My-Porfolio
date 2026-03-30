@@ -16,7 +16,7 @@
 }
 
 .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-heading);
     font-size: 3.5rem;
     margin-bottom: 2rem;
     color: var(--text-primary);
@@ -59,7 +59,7 @@
 
 .gradient-multi {
     font-weight: 700;
-    background: linear-gradient(to right, #34d399, #10b981, #059669, #34d399);
+    background: linear-gradient(to right, #daa520, #b8860b, #8b6508, #daa520);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
@@ -68,7 +68,7 @@
 
 [data-theme="light"] .gradient-multi {
     /* Slightly darker gradient for light mode */
-    background: linear-gradient(to right, #047857, #059669, #10b981, #047857);
+    background: linear-gradient(to right, #6e5005, #8b6508, #b8860b, #6e5005);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -99,9 +99,9 @@
 }
 
 [data-theme="light"] .code-wrapper {
-    background: #ecfdf5;
+    background: #e8d5a3;
     /* Light gold bg */
-    border: 1px solid #a7f3d0;
-    color: #047857;
+    border: 1px solid #d4a853;
+    color: #6e5005;
     /* Dark gold code text */
 }
