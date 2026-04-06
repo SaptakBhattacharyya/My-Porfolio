@@ -232,6 +232,32 @@ const BentoGrid = () => {
                 {activeModal === 'contact' && <Contact />}
                 {activeModal === 'resume' && <Resume />}
                 {activeModal === 'intro' && <Hero />}
+                {activeModal === 'tech' && (
+                  <div style={{ padding: '2rem', color: '#fff', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '2rem', fontWeight: '800', marginBottom: '0.5rem' }}>Core Tech Stack</h2>
+                    <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2.5rem', fontSize: '0.95rem' }}>The primary technologies I build with every day.</p>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1.5rem', maxWidth: '700px', margin: '0 auto' }}>
+                      {[
+                        { name: 'React.js', desc: 'UI Library for building dynamic frontends', color: '#61DAFB' },
+                        { name: 'Node.js', desc: 'JavaScript runtime for server-side development', color: '#68A063' },
+                        { name: 'Express.js', desc: 'Minimal & fast web framework for Node', color: '#ffffff' },
+                        { name: 'MongoDB', desc: 'NoSQL database for flexible data storage', color: '#47A248' },
+                        { name: 'JavaScript', desc: 'Core language for web development', color: '#F7DF1E' },
+                        { name: 'Next.js', desc: 'React framework for production apps', color: '#ffffff' },
+                        { name: 'HTML5 & CSS3', desc: 'Foundation of every web interface', color: '#E34F26' },
+                        { name: 'Git & GitHub', desc: 'Version control and collaboration', color: '#F05032' },
+                      ].map((tech) => (
+                        <div key={tech.name} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '1.5rem 1rem', transition: 'transform 0.2s', cursor: 'default' }}
+                          onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-4px)'}
+                          onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+                        >
+                          <div style={{ fontSize: '0.95rem', fontWeight: '700', color: tech.color, marginBottom: '0.4rem' }}>{tech.name}</div>
+                          <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.5)', lineHeight: '1.4' }}>{tech.desc}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </motion.div>
           </motion.div>

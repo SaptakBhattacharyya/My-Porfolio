@@ -9,10 +9,10 @@ const Resume = () => {
     const handleDownload = () => {
         const element = resumeRef.current;
         const opt = {
-            margin:       [4, 6, 4, 6],
+            margin:       [2, 4, 2, 4],
             filename:     'Saptak_Bhattacharyya_Resume.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 1200 },
+            html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 900 },
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         import('html2pdf.js').then(({ default: html2pdf }) => {
