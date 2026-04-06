@@ -73,6 +73,10 @@ const Resume = () => {
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                             {' '}Twitter
                         </a>
+                        <a href="https://www.youtube.com/@Saptak-codez" target="_blank" rel="noopener noreferrer">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            {' '}YouTube
+                        </a>
                     </div>
 
                     <hr className="resume-divider" />
@@ -117,14 +121,26 @@ const Resume = () => {
                             <div className="resume-block">
                                 <h3>CERTIFICATIONS</h3>
                                 <ul className="cert-list">
-                                    <li>Problem Solving</li>
-                                    <li>JavaScript</li>
-                                    <li>Node.js</li>
-                                    <li>C++</li>
-                                    <li>React</li>
-                                    <li>SQL</li>
-                                    <li>RESTful API</li>
-                                    <li>CSS</li>
+                                    <li>
+                                        <a href="/certificates/Intro_to_C.html" target="_blank" rel="noopener noreferrer">
+                                            Introduction to C
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/certificates/Generative_AI.html" target="_blank" rel="noopener noreferrer">
+                                            Introduction to Generative AI
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/certificates/Data_Science_Analytics.html" target="_blank" rel="noopener noreferrer">
+                                            Data Science & Analytics
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">
+                                            ElectroSphere 2K26 (1st Place)
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
 
@@ -183,20 +199,20 @@ const Resume = () => {
                                         <li>Responsive e-commerce clone with product filtering, cart, and seamless checkout UI.</li>
                                     </ul>
                                     <div className="resume-project-links">
-                                        Links: <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                                        Links: <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
                                     </div>
                                 </div>
 
                                 <div className="resume-item">
                                     <div className="item-header">
-                                        <h4>Litecoin Web3</h4>
-                                        <span className="item-skills">React · Web3 · CSS</span>
+                                        <h4>Lazarev Agency Webpage Clone</h4>
+                                        <span className="item-skills">HTML · CSS</span>
                                     </div>
                                     <ul>
-                                        <li>Cryptocurrency landing page with dark-mode aesthetics and real-time data visualization.</li>
+                                        <li>This project is a frontend clone of the Lazarev design agency homepage.</li>
                                     </ul>
                                     <div className="resume-project-links">
-                                        Links: <a href="https://saptak108267litecoinweb3.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                                        Links: <a href="https://github.com/SaptakBhattacharyya/frontend-Lazarev-Digital-Product-Design-Agency-Webpage.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://lazarev-frontend-webpage-saptak.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
                                     </div>
                                 </div>
 
@@ -209,7 +225,7 @@ const Resume = () => {
                                         <li>Pixel-perfect interior design clone with smooth animations and premium UI.</li>
                                     </ul>
                                     <div className="resume-project-links">
-                                        Links: <a href="https://saptak108267decurewebclone5.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                                        Links: <a href="https://github.com/SaptakBhattacharyya/decure-web5.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267decurewebclone5.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
                                     </div>
                                 </div>
                             </div>
@@ -219,8 +235,7 @@ const Resume = () => {
                                 <h3>ACHIEVEMENTS</h3>
                                 <ul>
                                     <li>Completed First Year of B.Tech with academic excellence.</li>
-                                    <li>Google Cloud — <strong>Intro to Generative AI</strong> (Dec 2025).</li>
-                                    <li>SoloLearn — <strong>C Programming Certification</strong> (Oct 2025).</li>
+                                    <li>Successfully organized and participated in several technical hackathons and clubs.</li>
                                 </ul>
                             </div>
                         </div>

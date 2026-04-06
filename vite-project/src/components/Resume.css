@@ -154,6 +154,16 @@
     column-gap: 1.5rem;
 }
 
+.cert-list a {
+    color: #4a5568;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.cert-list a:hover {
+    color: #4F46E5;
+}
+
 /* Resume Items */
 .resume-item {
     margin-bottom: 0.6rem;
@@ -375,8 +385,10 @@
         margin-top: 1pt;
     }
 
-    .resume-project-links a {
+    .resume-project-links a,
+    .cert-list a {
         color: #1a1a1a !important;
+        text-decoration: none !important;
     }
 
     .resume-win-badge {
