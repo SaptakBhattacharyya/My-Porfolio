@@ -117,33 +117,6 @@ const Resume = () => {
                                 </div>
                             </div>
 
-                            {/* Certifications */}
-                            <div className="resume-block">
-                                <h3>CERTIFICATIONS</h3>
-                                <ul className="cert-list">
-                                    <li>
-                                        <a href="/certificates/Intro_to_C.html" target="_blank" rel="noopener noreferrer">
-                                            Introduction to C
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificates/Generative_AI.html" target="_blank" rel="noopener noreferrer">
-                                            Introduction to Generative AI
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificates/Data_Science_Analytics.html" target="_blank" rel="noopener noreferrer">
-                                            Data Science & Analytics
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">
-                                            ElectroSphere 2K26 (1st Place)
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
                             {/* Languages */}
                             <div className="resume-block">
                                 <h3>LANGUAGES</h3>
@@ -153,25 +126,46 @@ const Resume = () => {
                                     <li>Hindi — Proficient</li>
                                 </ul>
                             </div>
-                        </div>
-
-                        {/* Right Column */}
-                        <div className="resume-col-right">
 
                             {/* Hackathon */}
                             <div className="resume-block">
                                 <h3>HACKATHON</h3>
                                 <div className="resume-item">
                                     <div className="item-header">
-                                        <h4>ElectroSphere 2K26 — <span className="resume-win-badge">1st Place 🏆</span></h4>
+                                        <h4>ElectroSphere 2K26 — <span className="resume-win-badge">1st Place </span></h4>
                                         <span className="item-date">Jan 2026</span>
                                     </div>
                                     <div className="item-sub">TechX Club, Swaminarayan University — Software Edition</div>
                                     <ul>
                                         <li>Built a full-stack solution under time constraints, securing 1st place among all participants.</li>
                                     </ul>
+                                    <div className="resume-proof">
+                                        <a href="/certificates/electrosphere_proof.jpg" target="_blank" rel="noopener noreferrer">
+                                            View Proof
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="resume-item">
+                                    <div className="item-header">
+                                        <h4>Doppelganger — OpenPools.in</h4>
+                                        <span className="item-date">2026</span>
+                                    </div>
+                                    <div className="item-sub">OpenPools.in — 30-Hour Collaborative Build Sprint</div>
+                                    <ul>
+                                        <li>Participated in Doppelganger, a collaborative 30-hour build sprint where teams transformed their Professional DNA into real-world solutions.</li>
+                                    </ul>
+                                    <div className="resume-proof">
+                                        <a href="/certificates/doppelganger_proof.png" target="_blank" rel="noopener noreferrer">
+                                            View Proof
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Right Column */}
+                        <div className="resume-col-right">
 
                             {/* Projects */}
                             <div className="resume-block">
@@ -228,6 +222,33 @@ const Resume = () => {
                                         Links: <a href="https://github.com/SaptakBhattacharyya/decure-web5.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267decurewebclone5.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Certifications */}
+                            <div className="resume-block">
+                                <h3>CERTIFICATIONS</h3>
+                                <ul className="cert-list">
+                                    <li>
+                                        <a href="/certificates/Intro_to_C.html" target="_blank" rel="noopener noreferrer">
+                                            Introduction to C
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/certificates/Generative_AI.html" target="_blank" rel="noopener noreferrer">
+                                            Introduction to Generative AI
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/certificates/Data_Science_Analytics.html" target="_blank" rel="noopener noreferrer">
+                                            Data Science & Analytics
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">
+                                            ElectroSphere 2K26 (1st Place)
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
 
                             {/* Achievements */}

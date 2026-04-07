@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Code } from 'lucide-react';
+import { Github, ExternalLink, Code, Youtube } from 'lucide-react';
 import './Projects.css';
 
 const Projects = () => {
@@ -20,7 +20,8 @@ const Projects = () => {
             tags: ['HTML/CSS', 'JavaScript', 'E-commerce'],
             image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop',
             github: '#',
-            demo: 'https://saptak108267untuckitweb6.netlify.app/'
+            demo: 'https://saptak108267untuckitweb6.netlify.app/',
+            video: 'https://youtu.be/ZWfsPoOT3Nw?si=onGj5BnQZC2ksorD'
         },
         {
             title: 'Litecoin Web3',
@@ -28,7 +29,8 @@ const Projects = () => {
             tags: ['React', 'Web3'],
             image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2069&auto=format&fit=crop',
             github: '#',
-            demo: 'https://saptak108267litecoinweb3.netlify.app/'
+            demo: 'https://saptak108267litecoinweb3.netlify.app/',
+            video: 'https://youtu.be/mzoZqWNIpIs?si=gynu_dI6C3nWy9mY'
         },
         {
             title: 'Decure Interior Clone',
@@ -36,7 +38,8 @@ const Projects = () => {
             tags: ['HTML', 'UI/UX', 'Animation'],
             image: 'https://decure.in/cdn/shop/files/Decure_Logo_1000x500Px.png?height=628&pad_color=ffffff&v=1711642701&width=1200',
             github: '#',
-            demo: 'https://saptak108267decurewebclone5.netlify.app/'
+            demo: 'https://saptak108267decurewebclone5.netlify.app/',
+            video: 'https://youtu.be/F7RyF2E7WKU?si=AeO496RqlJCPHV2f'
         }
     ];
 
@@ -91,6 +94,11 @@ const Projects = () => {
                                     <a href={project.demo} className="project-link">
                                         <ExternalLink size={18} /> Live Demo
                                     </a>
+                                    {project.video && (
+                                        <a href={project.video} target="_blank" rel="noopener noreferrer" className="project-link project-link-yt">
+                                            <Youtube size={18} /> Video
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </motion.div>

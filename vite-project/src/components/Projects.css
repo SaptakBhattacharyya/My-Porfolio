@@ -205,6 +205,10 @@
     color: var(--neon-primary);
 }
 
+.project-link-yt:hover {
+    color: #FF0000;
+}
+
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;

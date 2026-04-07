@@ -85,7 +85,7 @@
 /* Two Column Layout */
 .resume-two-col {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
@@ -220,6 +220,27 @@
     font-weight: 700;
 }
 
+/* Proof photo link */
+.resume-proof {
+    margin-top: 0.25rem;
+}
+
+.resume-proof a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #4F46E5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.resume-proof a:hover {
+    color: #3730A3;
+    text-decoration: underline;
+}
+
 /* Print / PDF - A4 Single Page */
 @media print {
     @page {
@@ -306,7 +327,7 @@
 
     .resume-two-col {
         gap: 8pt;
-        grid-template-columns: 1fr 1.35fr;
+        grid-template-columns: 1fr 1fr;
     }
 
     .resume-col-left {
@@ -393,6 +414,16 @@
 
     .resume-win-badge {
         color: #1a1a1a !important;
+    }
+
+    .resume-proof {
+        margin-top: 1pt;
+    }
+
+    .resume-proof a {
+        font-size: 6pt;
+        color: #1a1a1a !important;
+        text-decoration: none !important;
     }
 }
 
