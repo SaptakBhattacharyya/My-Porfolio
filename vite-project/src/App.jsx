@@ -12,14 +12,11 @@ import profileImg from './assets/profile.png';
 function App() {
   const [theme, setTheme] = useState('dark');
   
-  // Only play the intro once per session so it doesn't get annoying on refresh
-  const [introFinished, setIntroFinished] = useState(() => {
-    return sessionStorage.getItem('introPlayed') === 'true';
-  });
+  // State for the intro animation (will play on every page reload)
+  const [introFinished, setIntroFinished] = useState(false);
 
   const handleIntroComplete = () => {
     setIntroFinished(true);
-    sessionStorage.setItem('introPlayed', 'true');
   };
 
   // Initialize Theme

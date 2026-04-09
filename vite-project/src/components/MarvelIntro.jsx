@@ -7,9 +7,11 @@ import img3 from '../previewintroimg/image copy 2.png';
 import img4 from '../previewintroimg/image copy 3.png';
 import img5 from '../previewintroimg/image copy 4.png';
 import img6 from '../previewintroimg/image copy 5.png';
-// import img7 from '../previewintroimg/winners.png'; // Uncomment when file is saved!
+import img7 from '../previewintroimg/image copy 6.png';
+import img8 from '../previewintroimg/image copy 7.png';
+import img9 from '../previewintroimg/image copy 8.png';
 
-const flipImages = [img1, img2, img3, img4, img5, img6];
+const flipImages = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
 
 const MarvelIntro = ({ onComplete }) => {
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
@@ -43,7 +45,7 @@ const MarvelIntro = ({ onComplete }) => {
     if (phase === 'flipping') {
       flipInterval = setInterval(() => {
         setCurrentImgIdx((prev) => (prev + 1) % flipImages.length);
-      }, 100);
+      }, 400); // Increased from 100 to 400 to slow down the transition
     }
     return () => {
       if (flipInterval) clearInterval(flipInterval);
@@ -59,14 +61,22 @@ const MarvelIntro = ({ onComplete }) => {
         ))}
       </div>
 
-      <div className="marvel-logo-wrapper">
+      <div className="marvel-logo-wrapper" style={{ display: 'flex', gap: '0' }}>
         <h1 
           className="marvel-text"
           style={{
             backgroundImage: phase === 'flipping' ? `url(${flipImages[currentImgIdx]})` : 'none'
           }}
         >
-          S.K.
+          S
+        </h1>
+        <h1 
+          className="marvel-text"
+          style={{
+            backgroundImage: phase === 'flipping' ? `url(${flipImages[(currentImgIdx + Math.floor(flipImages.length / 2)) % flipImages.length]})` : 'none'
+          }}
+        >
+          K
         </h1>
       </div>
     </div>
