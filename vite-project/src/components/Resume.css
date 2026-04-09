@@ -245,7 +245,7 @@
 @media print {
     @page {
         size: A4 portrait;
-        margin: 5mm 8mm;
+        margin: 0;
     }
 
     html, body {
@@ -273,65 +273,65 @@
     .resume-document {
         position: absolute;
         left: 0;
-        top: 0;
+        top: 0 !important;
         width: 100%;
         max-width: 100%;
-        margin: 0;
-        padding: 0;
+        margin: 0 !important;
+        padding: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
         background: #fff !important;
-        font-size: 7pt;
+        font-size: 5.2pt;
         color: #1a1a1a;
-        line-height: 1.25;
+        line-height: 0.95;
     }
 
     .resume-header {
-        margin-bottom: 2pt;
-        padding-bottom: 2pt;
-        border-bottom: 1.5pt solid #1a1a1a;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        margin-bottom: 0.1pt;
+        padding-bottom: 0.1pt;
+        border-bottom: 1.2pt solid #1a1a1a;
     }
 
     .resume-header h1 {
-        font-size: 13pt;
-        margin-bottom: 1pt;
-        letter-spacing: 0.04em;
+        font-size: 10pt;
+        margin-top: 0 !important;
+        margin-bottom: 0.1pt;
     }
 
     .resume-contact-row {
-        font-size: 7pt;
-        gap: 8pt;
-        margin-bottom: 1pt;
+        font-size: 6pt;
+        gap: 5pt;
+        margin-bottom: 0.1pt;
     }
 
     .resume-links-bar {
-        gap: 4pt;
-        padding: 2pt 0;
-        margin-bottom: 1pt;
+        gap: 3pt;
+        padding: 0 !important;
+        margin-bottom: 0.1pt;
     }
 
     .resume-links-bar a {
-        font-size: 6pt;
-        padding: 1pt 4pt;
-        border: 0.75pt solid #555 !important;
+        font-size: 5.8pt;
+        padding: 0.5pt 3pt;
+        border: 0.5pt solid #555 !important;
         color: #333 !important;
         border-radius: 2pt;
         text-decoration: none;
     }
 
     .resume-divider {
-        margin: 2pt 0 3pt;
-        height: 0.75pt;
-        background: #aaa;
+        display: none !important;
     }
 
     .resume-two-col {
-        gap: 8pt;
+        gap: 6pt;
         grid-template-columns: 1fr 1fr;
     }
 
     .resume-col-left {
-        padding-right: 6pt;
+        padding-right: 3pt;
         border-right: 0.5pt solid #ddd;
     }
 
@@ -340,56 +340,56 @@
     }
 
     .resume-block {
-        margin-bottom: 4pt;
+        margin-bottom: 0px !important;
     }
 
     .resume-block h3 {
-        font-size: 7pt;
-        letter-spacing: 0.06em;
-        padding-bottom: 1pt;
-        margin-bottom: 2pt;
-        border-bottom: 1pt solid #1a1a1a;
+        font-size: 5.5pt;
+        letter-spacing: 0.02em;
+        padding-bottom: 0pt;
+        margin-bottom: 0.1pt;
+        border-bottom: 0.4pt solid #1a1a1a;
     }
 
     .resume-block p {
-        font-size: 6.5pt;
-        line-height: 1.25;
-        margin-bottom: 0.5pt;
+        font-size: 5.2pt;
+        line-height: 1;
+        margin-bottom: 0pt;
     }
 
     .resume-block ul {
-        font-size: 6.5pt;
-        line-height: 1.25;
-        padding-left: 9pt;
-        margin: 1pt 0 1.5pt;
+        font-size: 5.2pt;
+        line-height: 1;
+        padding-left: 5pt;
+        margin: 0pt 0 0.2pt;
     }
 
     .resume-block ul li {
-        margin-bottom: 0.5pt;
+        margin-bottom: 0pt;
     }
 
     .resume-skills-group {
-        margin-bottom: 1.5pt;
+        margin-bottom: 0.5pt;
     }
 
     .resume-skills-group p {
-        font-size: 6.5pt;
+        font-size: 6pt;
         margin-bottom: 0;
     }
 
     .cert-list {
         columns: 2;
-        column-gap: 6pt;
-        font-size: 6.5pt;
+        column-gap: 4pt;
+        font-size: 6pt;
     }
 
     .resume-item {
-        margin-bottom: 3pt;
+        margin-bottom: 0px !important;
         page-break-inside: avoid;
     }
 
     .item-header h4 {
-        font-size: 7pt;
+        font-size: 5.8pt;
     }
 
     .item-date, .item-skills {
@@ -397,13 +397,13 @@
     }
 
     .item-sub {
-        font-size: 6.5pt;
-        margin-bottom: 1pt;
+        font-size: 5.2pt;
+        margin-bottom: 0pt;
     }
 
     .resume-project-links {
-        font-size: 6pt;
-        margin-top: 1pt;
+        font-size: 5.5pt;
+        margin-top: 0pt;
     }
 
     .resume-project-links a,
@@ -417,7 +417,7 @@
     }
 
     .resume-proof {
-        margin-top: 1pt;
+        margin-top: 0pt;
     }
 
     .resume-proof a {
@@ -425,6 +425,14 @@
         color: #1a1a1a !important;
         text-decoration: none !important;
     }
+
+    .print-only {
+        display: block !important;
+    }
+}
+
+.print-only {
+    display: none;
 }
 
 /* Responsive */

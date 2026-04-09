@@ -8,15 +8,27 @@ const Resume = () => {
 
     const handleDownload = () => {
         const element = resumeRef.current;
+        
+        // Temporarily scale down for capture to ensure single page fit
+        const originalTransform = element.style.transform;
+        const originalTransformOrigin = element.style.transformOrigin;
+        element.style.transform = 'scale(0.9)';
+        element.style.transformOrigin = 'top center';
+
         const opt = {
-            margin:       [2, 4, 2, 4],
+            margin:       [0, 0, 0, 0],
             filename:     'Saptak_Bhattacharyya_Resume.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 900 },
+            html2canvas:  { scale: 2, useCORS: true, logging: false, windowWidth: 900, x: 0, y: 0 },
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
+
         import('html2pdf.js').then(({ default: html2pdf }) => {
-            html2pdf().set(opt).from(element).save();
+            html2pdf().set(opt).from(element).save().then(() => {
+                // Restore original styling
+                element.style.transform = originalTransform;
+                element.style.transformOrigin = originalTransformOrigin;
+            });
         });
     };
 
@@ -120,7 +132,10 @@ const Resume = () => {
                             {/* Languages */}
                             <div className="resume-block">
                                 <h3>LANGUAGES</h3>
-                                <ul>
+                                <p className="print-only" style={{ fontSize: '5.5pt', marginTop: '0.2rem' }}>
+                                    English — Fluent | Bengali — Native | Hindi — Proficient
+                                </p>
+                                <ul className="no-print">
                                     <li>English — Fluent</li>
                                     <li>Bengali — Native</li>
                                     <li>Hindi — Proficient</li>

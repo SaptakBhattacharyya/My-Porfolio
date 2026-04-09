@@ -1,6 +1,6 @@
 /* Projects Section */
 .projects-section {
-    padding: 8rem 0;
+    padding: 8rem 0 4rem;
     position: relative;
     overflow: hidden;
     background: transparent;
@@ -8,7 +8,7 @@
 
 .section-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .section-header h2 {
@@ -25,47 +25,101 @@
     margin: 0 auto;
 }
 
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
-    padding: 0 1rem;
+/* ─────────────── Marquee Wrapper ─────────────── */
+.marquee-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 1rem 0 2rem;
 }
 
-/* Project Card */
-.project-card {
+/* Edge fade gradients */
+.marquee-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.marquee-fade-left {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+.marquee-fade-right {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+[data-theme="light"] .marquee-fade-left {
+    background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+[data-theme="light"] .marquee-fade-right {
+    background: linear-gradient(to left, var(--bg-dark), transparent);
+}
+
+/* ─────────────── Marquee Track ─────────────── */
+.marquee-track {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 1rem));
+    }
+}
+
+/* ─────────────── Marquee Card ─────────────── */
+.marquee-card {
+    flex-shrink: 0;
+    width: 340px;
     background: rgba(255, 255, 255, 0.03);
-    /* Dark mode default */
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 20px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
     display: flex;
     flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
-[data-theme="light"] .project-card {
+[data-theme="light"] .marquee-card {
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: none;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+.marquee-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: var(--neon-primary);
+    box-shadow:
+        0 20px 40px -15px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(184, 134, 11, 0.08);
 }
 
-[data-theme="light"] .project-card:hover {
+[data-theme="light"] .marquee-card:hover {
     background: #fff;
     border-color: var(--neon-primary);
-    box-shadow: none;
+    box-shadow: 0 12px 32px rgba(79, 70, 229, 0.12);
 }
 
+/* ─────────────── Card Image ─────────────── */
 .card-image {
-    height: 220px;
+    height: 200px;
     width: 100%;
     background: #111;
     position: relative;
@@ -76,22 +130,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
-    opacity: 0.8;
+    transition: transform 0.6s ease, filter 0.4s ease, opacity 0.4s ease;
+    opacity: 0.85;
+    filter: grayscale(30%);
 }
 
 [data-theme="light"] .card-image img {
     opacity: 1;
+    filter: grayscale(0%);
 }
 
-.project-card:hover .card-image img {
-    transform: scale(1.1);
+.marquee-card:hover .card-image img {
+    transform: scale(1.12);
     opacity: 0.4;
-    /* Dim image on hover to show button clearly */
-    filter: blur(2px);
+    filter: blur(2px) grayscale(0%);
 }
 
-/* Project Overlay - Button */
+/* ─────────────── Overlay Button ─────────────── */
 .project-overlay {
     position: absolute;
     top: 0;
@@ -106,15 +161,16 @@
     z-index: 10;
 }
 
-.project-card:hover .project-overlay {
+.marquee-card:hover .project-overlay {
     opacity: 1;
 }
 
 .view-btn {
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.4rem;
     background: var(--neon-primary);
     color: #000;
     font-weight: 700;
+    font-size: 0.85rem;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
@@ -124,7 +180,7 @@
     box-shadow: 0 0 20px rgba(184, 134, 11, 0.4);
 }
 
-.project-card:hover .view-btn {
+.marquee-card:hover .view-btn {
     transform: translateY(0);
 }
 
@@ -133,43 +189,51 @@
     transform: scale(1.05);
 }
 
-/* Rest of Card Content */
+/* ─────────────── Card Content ─────────────── */
 .card-content {
-    padding: 2rem;
+    padding: 1.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
 .card-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-content p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* Tags */
+/* ─────────────── Tags ─────────────── */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
 }
 
 .project-tag {
-    font-size: 0.75rem;
-    padding: 0.3rem 0.8rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 50px;
-
     background: rgba(255, 255, 255, 0.05);
     color: var(--neon-primary);
     border: 1px solid rgba(184, 134, 11, 0.15);
+    white-space: nowrap;
 }
 
 [data-theme="light"] .project-tag {
@@ -178,12 +242,12 @@
     border: 1px solid #d4a853;
 }
 
-/* Links */
+/* ─────────────── Links ─────────────── */
 .card-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: auto;
-    padding-top: 1rem;
+    padding-top: 0.8rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -192,13 +256,14 @@
 }
 
 .project-link {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--text-primary);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     transition: color 0.3s ease;
+    text-decoration: none;
 }
 
 .project-link:hover {
@@ -209,8 +274,35 @@
     color: #FF0000;
 }
 
+/* ─────────────── Responsive ─────────────── */
 @media (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
+    .marquee-card {
+        width: 280px;
+    }
+
+    .marquee-fade {
+        width: 40px;
+    }
+
+    .section-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .marquee-track {
+        animation-duration: 22s;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-card {
+        width: 260px;
+    }
+
+    .card-image {
+        height: 160px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
     }
 }

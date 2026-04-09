@@ -93,79 +93,277 @@
     justify-content: flex-start;
 }
 
-/* Featured Projects Auto-Sliding Carousel */
-.bento-project-carousel {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 16px;
-    margin-top: 1rem;
-    margin-bottom: 2rem; /* Gap between carousel and icon below */
-    position: relative;
-    height: 220px; /* Bigger display */
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.carousel-slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
+/* ─────────────── Full-Width Marquee Card ─────────────── */
+.bento-marquee-card {
+    grid-column: span 4 !important;
+    grid-row: span 2; /* Reverted to 2 rows with tighter padding to fit links */
+    min-height: auto; 
+    padding: 1.2rem 0 0.5rem; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    cursor: default;
     overflow: hidden;
 }
 
-.carousel-img {
+.bento-marquee-card .marquee-header {
+    padding: 0 2rem 0.5rem;
+}
+
+.bento-marquee-card .marquee-header h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+}
+
+.bento-marquee-card .marquee-header p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* ─── Marquee Wrapper & Track ─── */
+.bmq-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.5rem 0 0.8rem; /* Dramatically reduced bottom padding */
+}
+
+.bmq-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.bmq-fade-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(28, 28, 30, 0.95), transparent);
+}
+
+.bmq-fade-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(28, 28, 30, 0.95), transparent);
+}
+
+[data-theme="light"] .bmq-fade-left {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95), transparent);
+}
+
+[data-theme="light"] .bmq-fade-right {
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+}
+
+.bmq-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: bmq-scroll 35s linear infinite;
+}
+
+.bmq-wrapper:hover .bmq-track {
+    animation-play-state: paused;
+}
+
+@keyframes bmq-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 0.75rem));
+    }
+}
+
+/* ─── Marquee Project Card ─── */
+.bmq-card {
+    flex-shrink: 0;
+    width: 280px;
+    height: 335px !important; /* Reduced to ensure it fits span 2 perfectly */
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+[data-theme="light"] .bmq-card {
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.bmq-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: var(--neon-primary);
+    box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(184, 134, 11, 0.08);
+}
+
+[data-theme="light"] .bmq-card:hover {
+    border-color: var(--neon-primary);
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.1);
+}
+
+/* Card Image */
+.mq-card-image {
+    height: 110px; /* Reduced to ensure links fit in compact card */
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #111;
+}
+
+.mq-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.6;
-    border-radius: 16px;
+    opacity: 0.75;
+    filter: grayscale(30%);
+    transition: transform 0.5s ease, filter 0.4s ease, opacity 0.4s ease;
 }
 
-.carousel-meta {
+[data-theme="light"] .mq-card-image img {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+.bmq-card:hover .mq-card-image img {
+    transform: scale(1.1);
+    opacity: 0.35;
+    filter: blur(2px) grayscale(0%);
+}
+
+/* Overlay Button */
+.mq-project-overlay {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
-    right: 0;
-    padding: 0.8rem 1rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 5;
+}
+
+.bmq-card:hover .mq-project-overlay {
+    opacity: 1;
+}
+
+.mq-view-btn {
+    padding: 0.55rem 1.1rem;
+    background: var(--neon-primary);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.78rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transform: translateY(12px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 16px rgba(184, 134, 11, 0.4);
+}
+
+.bmq-card:hover .mq-view-btn {
+    transform: translateY(0);
+}
+
+.mq-view-btn:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+/* Card Content */
+.mq-card-content {
+    padding: 1rem 1.2rem;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
 }
 
-.carousel-title {
-    font-family: var(--font-heading);
-    font-size: 1rem;
+.mq-card-content h4 {
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #fff;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.carousel-tag {
-    font-size: 0.72rem;
-    color: var(--neon-primary);
-    font-weight: 500;
-    letter-spacing: 0.5px;
+.mq-card-content p {
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.45;
+    margin-bottom: 0.7rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.carousel-dots {
-    position: absolute;
-    bottom: 0.6rem;
-    right: 0.8rem;
+/* Tags */
+.mq-tags {
     display: flex;
-    gap: 5px;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.7rem;
 }
 
-.carousel-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transition: background 0.3s ease, transform 0.3s ease;
+.mq-tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--neon-primary);
+    border: 1px solid rgba(184, 134, 11, 0.15);
+    white-space: nowrap;
 }
 
-.carousel-dot.active {
-    background: var(--neon-primary);
-    transform: scale(1.3);
+[data-theme="light"] .mq-tag {
+    background: #e8d5a3;
+    color: #6e5005;
+    border: 1px solid #d4a853;
+}
+
+/* Links */
+.mq-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding: 0.8rem 0 0.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .mq-links {
+    border-top: 1px solid #e2e8f0;
+}
+
+.mq-links a {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.mq-links a:hover {
+    color: var(--neon-primary);
+}
+
+.mq-link-yt:hover {
+    color: #FF0000 !important;
 }
 
 /* Grid Spans */
@@ -521,7 +719,7 @@
     .hero-card { grid-column: span 3; }
     .bento-about-card { grid-column: span 3; }
     .bento-skills-card { grid-column: span 3; }
-    .bento-projects-card { grid-column: span 3; }
+    .bento-marquee-card { grid-column: span 3 !important; }
     .bento-contact-card, .bento-resume-card, .bento-education-card, .bento-certificates-card {
         grid-column: span 1;
     }
@@ -538,6 +736,22 @@
         grid-column: span 1 !important;
         grid-row: span 1 !important;
         min-height: 200px;
+    }
+
+    .bento-marquee-card {
+        min-height: auto;
+    }
+
+    .marquee-card {
+        width: 240px;
+    }
+
+    .marquee-fade {
+        width: 30px;
+    }
+
+    .marquee-track {
+        animation-duration: 22s;
     }
 
     .bento-section {

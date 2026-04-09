@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink, Youtube } from 'lucide-react';
 import './BentoGrid.css';
 
 // We will import actual functional components later to render inside modals
@@ -12,7 +13,7 @@ import Resume from './Resume';
 import Contact from './Contact';
 import Hero from './Hero';
 import profileImg from '../assets/profile.png';
-import { User, Code2, Briefcase, GraduationCap, Award, Mail, FileText, Github, Linkedin, Twitter } from 'lucide-react';
+import { User, Code2, Briefcase, GraduationCap, Award, Mail, FileText, Linkedin, Twitter } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -34,32 +35,55 @@ const itemVariants = {
   },
 };
 
-const carouselProjects = [
-  { title: 'Med-Remind', tag: 'Full-Stack · React · Node', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop' },
-  { title: 'UNTUCKit Clone', tag: 'E-Commerce · JavaScript', image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=600&auto=format&fit=crop' },
-  { title: 'Litecoin Web3', tag: 'React · Web3', image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=600&auto=format&fit=crop' },
-  { title: 'Decure Interior', tag: 'HTML · UI/UX · Animation', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=600&auto=format&fit=crop' },
+const marqueeProjects = [
+  {
+    title: 'Med-Remind',
+    description: 'A full-stack healthcare reminder application helping patients manage their medications and health logs.',
+    tags: ['React', 'Node.js', 'MongoDB', 'Full-Stack'],
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop',
+    github: 'https://github.com/codinggita/medremind.git',
+    demo: 'https://medremind-z2yo.vercel.app/'
+  },
+  {
+    title: 'UNTUCKit Clone',
+    description: 'A responsive e-commerce replica of the famous clothing brand UNTUCKit with cart & checkout UI.',
+    tags: ['HTML/CSS', 'JavaScript', 'E-commerce'],
+    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop',
+    github: '#',
+    demo: 'https://saptak108267untuckitweb6.netlify.app/',
+    video: 'https://youtu.be/ZWfsPoOT3Nw?si=onGj5BnQZC2ksorD'
+  },
+  {
+    title: 'Litecoin Web3',
+    description: 'A modern crypto landing page with dark-mode aesthetics, real-time data visualization concepts.',
+    tags: ['React', 'Web3'],
+    image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?q=80&w=2069&auto=format&fit=crop',
+    github: '#',
+    demo: 'https://saptak108267litecoinweb3.netlify.app/',
+    video: 'https://youtu.be/mzoZqWNIpIs?si=gynu_dI6C3nWy9mY'
+  },
+  {
+    title: 'Decure Interior Clone',
+    description: 'A pixel-perfect clone showcasing elegant interior design layouts and smooth animations.',
+    tags: ['HTML', 'UI/UX', 'Animation'],
+    image: 'https://decure.in/cdn/shop/files/Decure_Logo_1000x500Px.png?height=628&pad_color=ffffff&v=1711642701&width=1200',
+    github: '#',
+    demo: 'https://saptak108267decurewebclone5.netlify.app/',
+    video: 'https://youtu.be/F7RyF2E7WKU?si=AeO496RqlJCPHV2f'
+  }
 ];
+
+// Duplicate for seamless infinite scrolling
+const duplicatedProjects = [...marqueeProjects, ...marqueeProjects];
 
 const BentoGrid = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [hasScrolledModal, setHasScrolledModal] = useState(false);
-  const [carouselIndex, setCarouselIndex] = useState(0);
-  const [slideDir, setSlideDir] = useState('right');
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSlideDir('right');
-      setCarouselIndex(prev => (prev + 1) % carouselProjects.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
 
   const bentoItems = [
     { id: 'intro', title: 'Saptak Bhattacharyya', desc: 'Full-stack developer specialized in building scalable, user-centered digital products.', span: 'col-span-2 row-span-2', type: 'hero' },
     { id: 'about', title: 'About Me', desc: 'Passionate CS student pursuing B.Tech at Swaminarayan University. Creative, logical, and innovation-driven.', span: 'col-span-2 row-span-1', type: 'about', icon: <User size={28} /> },
     { id: 'skills', title: 'Top Skills', desc: 'Expertise in React.js, Node.js, Express, and MongoDB. Professional UI/UX Designer.', span: 'col-span-2 row-span-1', type: 'skills', icon: <Code2 size={28} /> },
-    { id: 'projects', title: 'Featured Projects', desc: '', span: 'col-span-2 row-span-2', type: 'projects', icon: <Briefcase size={28} /> },
     { id: 'education', title: 'Education', desc: 'B.Tech CSE @ Swaminarayan University. (Currently Pursuing).', span: 'col-span-1 row-span-1', type: 'education', icon: <GraduationCap size={28} /> },
     { id: 'certificates', title: 'Certificates', desc: 'Certified in MERN Stack, UI Design, and Advanced Algorithms.', span: 'col-span-1 row-span-1', type: 'certificates', icon: <Award size={28} /> },
     { id: 'contact', title: 'Contact Me', desc: 'Available for freelance & Internships. Reach out now.', span: 'col-span-1 row-span-1', type: 'contact', icon: <Mail size={28} /> },
@@ -68,7 +92,7 @@ const BentoGrid = () => {
 
   const handleBoxClick = (id) => {
     setActiveModal(id);
-    setHasScrolledModal(false); // Reset on new open
+    setHasScrolledModal(false);
   };
 
   const closeModal = () => {
@@ -119,35 +143,6 @@ const BentoGrid = () => {
                   </div>
                 </div>
               )}
-              {item.type === 'projects' && (
-                <div className="bento-project-carousel">
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={carouselIndex}
-                      className="carousel-slide"
-                      initial={{ x: 80, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: -80, opacity: 0 }}
-                      transition={{ duration: 0.45, ease: 'easeInOut' }}
-                    >
-                      <img
-                        src={carouselProjects[carouselIndex].image}
-                        alt={carouselProjects[carouselIndex].title}
-                        className="carousel-img"
-                      />
-                      <div className="carousel-meta">
-                        <span className="carousel-title">{carouselProjects[carouselIndex].title}</span>
-                        <span className="carousel-tag">{carouselProjects[carouselIndex].tag}</span>
-                      </div>
-                    </motion.div>
-                  </AnimatePresence>
-                  <div className="carousel-dots">
-                    {carouselProjects.map((_, i) => (
-                      <span key={i} className={`carousel-dot${i === carouselIndex ? ' active' : ''}`} />
-                    ))}
-                  </div>
-                </div>
-              )}
 
               {item.icon && (
                 <div className="bento-icon-wrapper">
@@ -180,9 +175,64 @@ const BentoGrid = () => {
             </div>
           </motion.div>
         ))}
+
+        {/* ─── Full-Width Marquee Projects Row ─── */}
+        <motion.div
+          variants={itemVariants}
+          className="bento-card col-span-4 bento-marquee-card"
+        >
+          <div className="bento-card-inner marquee-header">
+            <div className="bento-icon-wrapper">
+              <Briefcase size={28} />
+            </div>
+            <h3>Featured Projects</h3>
+            <p>A selection of my recent work — hover to pause, click to explore.</p>
+          </div>
+
+          <div className="bmq-wrapper" onClick={(e) => e.stopPropagation()}>
+            <div className="bmq-fade bmq-fade-left" />
+            <div className="bmq-fade bmq-fade-right" />
+            <div className="bmq-track">
+              {duplicatedProjects.map((project, index) => (
+                <div className="bmq-card" key={`${project.title}-${index}`}>
+                  <div className="mq-card-image">
+                    <img src={project.image} alt={project.title} />
+                    <div className="mq-project-overlay">
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" className="mq-view-btn" onClick={(e) => e.stopPropagation()}>
+                        View Details <ExternalLink size={14} style={{ marginLeft: '4px' }} />
+                      </a>
+                    </div>
+                  </div>
+                  <div className="mq-card-content">
+                    <h4>{project.title}</h4>
+                    <p>{project.description}</p>
+                    <div className="mq-tags">
+                      {project.tags.map((tag, i) => (
+                        <span className="mq-tag" key={i}>{tag}</span>
+                      ))}
+                    </div>
+                    <div className="mq-links">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                        <Github size={14} /> Code
+                      </a>
+                      <a href={project.demo} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                        <ExternalLink size={14} /> Live
+                      </a>
+                      {project.video && (
+                        <a href={project.video} target="_blank" rel="noopener noreferrer" className="mq-link-yt" onClick={(e) => e.stopPropagation()}>
+                          <Youtube size={14} /> Video
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
 
-      {/* Basic Modal System Placeholder */}
+      {/* Modal System */}
       <AnimatePresence>
         {activeModal && (
           <motion.div 
@@ -213,7 +263,7 @@ const BentoGrid = () => {
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing
+              onClick={(e) => e.stopPropagation()}
             >
               <button className="close-modal-btn" onClick={closeModal}>×</button>
               <div className="modal-scroll-area">
@@ -225,7 +275,6 @@ const BentoGrid = () => {
                 {activeModal === 'contact' && <Contact />}
                 {activeModal === 'resume' && <Resume />}
                 {activeModal === 'intro' && <Hero />}
-
               </div>
             </motion.div>
           </motion.div>
