@@ -5,11 +5,22 @@ import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
 import AnimatedBackground from './components/AnimatedBackground';
 import GlitterCursor from './components/GlitterCursor';
+import MarvelIntro from './components/MarvelIntro';
 import './App.css';
 import profileImg from './assets/profile.png';
 
 function App() {
   const [theme, setTheme] = useState('dark');
+  
+  // Only play the intro once per session so it doesn't get annoying on refresh
+  const [introFinished, setIntroFinished] = useState(() => {
+    return sessionStorage.getItem('introPlayed') === 'true';
+  });
+
+  const handleIntroComplete = () => {
+    setIntroFinished(true);
+    sessionStorage.setItem('introPlayed', 'true');
+  };
 
   // Initialize Theme
   useEffect(() => {
@@ -52,6 +63,8 @@ function App() {
 
   return (
     <div className="App">
+      {!introFinished && <MarvelIntro onComplete={handleIntroComplete} />}
+      
       <AnimatedBackground />
       <GlitterCursor />
 

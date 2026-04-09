@@ -79,6 +79,19 @@ const duplicatedProjects = [...marqueeProjects, ...marqueeProjects];
 const BentoGrid = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [hasScrolledModal, setHasScrolledModal] = useState(false);
+  const [glowTarget, setGlowTarget] = useState(null);
+
+  // Listen for nav-highlight events from Navbar
+  useEffect(() => {
+    const handleHighlight = (e) => {
+      const { target } = e.detail;
+      setGlowTarget(target);
+      // Remove glow after 2 seconds
+      setTimeout(() => setGlowTarget(null), 2000);
+    };
+    window.addEventListener('nav-highlight', handleHighlight);
+    return () => window.removeEventListener('nav-highlight', handleHighlight);
+  }, []);
 
   const bentoItems = [
     { id: 'intro', title: 'Saptak Bhattacharyya', desc: 'Full-stack developer specialized in building scalable, user-centered digital products.', span: 'col-span-2 row-span-2', type: 'hero' },
@@ -122,7 +135,8 @@ const BentoGrid = () => {
             variants={itemVariants}
             whileHover={{ scale: 1.02, y: -5, transition: { duration: 0.2 } }}
             whileTap={{ scale: 0.95 }}
-            className={`bento-card ${item.span} bento-${item.type}-card`}
+            className={`bento-card ${item.span} bento-${item.type}-card${glowTarget === item.id ? ' glow-highlight' : ''}`}
+            data-section={item.id}
             onClick={() => handleBoxClick(item.id)}
           >
             {item.type === 'hero' && (
@@ -179,7 +193,8 @@ const BentoGrid = () => {
         {/* ─── Full-Width Marquee Projects Row ─── */}
         <motion.div
           variants={itemVariants}
-          className="bento-card col-span-4 bento-marquee-card"
+          className={`bento-card col-span-4 bento-marquee-card${glowTarget === 'projects-marquee' ? ' glow-highlight' : ''}`}
+          data-section="projects-marquee"
         >
           <div className="bento-card-inner marquee-header">
             <div className="bento-icon-wrapper">

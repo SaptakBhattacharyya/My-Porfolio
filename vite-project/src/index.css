@@ -58,7 +58,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Light mode subtle top glow */
+/* Light mode – override the dark golden glows with a subtle indigo top glow */
 [data-theme="light"] body::before {
   content: '';
   position: fixed;
@@ -67,8 +67,14 @@ html {
   width: 100%;
   height: 100vh;
   background: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.06) 0%, transparent 55%);
+  filter: none;
+  animation: none;
   pointer-events: none;
   z-index: 0;
+}
+
+[data-theme="light"] body::after {
+  display: none;
 }
 
 body {
@@ -78,6 +84,40 @@ body {
   overflow-x: hidden;
   line-height: 1.7;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ── Golden corner glows (dark mode only) ── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -120px;
+  left: -120px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.30) 0%, rgba(184, 134, 11, 0.12) 40%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseGlow 8s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -140px;
+  right: -140px;
+  width: 750px;
+  height: 750px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.25) 0%, rgba(139, 101, 8, 0.10) 40%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+  animation: pulseGlow 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulseGlow {
+  0%   { opacity: 0.8; transform: scale(1); }
+  100% { opacity: 1;   transform: scale(1.08); }
 }
 
 a {
@@ -210,7 +250,7 @@ h6 {
   background: radial-gradient(circle, var(--neon-secondary), transparent 70%);
   top: -200px;
   right: -200px;
-  opacity: 0.3;
+  opacity: 0.45;
   animation: floatAmbient 15s ease-in-out infinite alternate;
 }
 
@@ -220,7 +260,7 @@ h6 {
   background: radial-gradient(circle, var(--neon-accent), transparent 60%);
   bottom: -300px;
   left: -100px;
-  opacity: 0.2;
+  opacity: 0.35;
   animation: floatAmbient 20s ease-in-out infinite alternate reverse;
 }
 
@@ -230,7 +270,7 @@ h6 {
   background: radial-gradient(circle, var(--neon-primary), transparent 60%);
   top: 40%;
   left: 30%;
-  opacity: 0.15;
+  opacity: 0.22;
   animation: floatAmbient 25s ease-in-out infinite alternate;
   mix-blend-mode: screen;
 }

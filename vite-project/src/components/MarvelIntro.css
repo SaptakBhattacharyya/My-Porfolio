@@ -1,0 +1,91 @@
+.marvel-intro-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505; /* Deep cinematic black */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  overflow: hidden;
+  transition: background-color 0.8s ease;
+}
+
+.marvel-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Gentle cinematic zoom in during the flipping phase */
+  animation: slowIntroZoom 3.6s linear forwards;
+}
+
+.marvel-text {
+  font-family: 'Impact', 'Inter', -apple-system, sans-serif;
+  font-weight: 900;
+  font-size: 30vw; /* Massive size */
+  line-height: 1;
+  letter-spacing: -2vw;
+  margin: 0;
+  padding: 0 4vw; /* Offset for tight tracking */
+  text-transform: uppercase;
+  
+  /* The clipping magic that puts images INSIDE the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  /* Zoom the image out and tile it across the text to capture more visual detail */
+  background-size: 300px auto; 
+  background-repeat: repeat;
+  background-position: center;
+  
+  /* Marvel-esque stroke outline */
+  -webkit-text-stroke: 4px rgba(255, 255, 255, 0.9);
+  
+  transition: color 0.4s ease, -webkit-text-stroke 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* ─────────────────────────────────────────────
+   PHASE: SOLID
+   The image stops, and the logo shines gold
+────────────────────────────────────────────── */
+.phase-solid .marvel-text {
+  -webkit-text-stroke: 0px transparent;
+  color: var(--neon-primary, #b8860b);
+  text-shadow: 
+    0 0 20px rgba(184, 134, 11, 0.4),
+    0 0 60px rgba(184, 134, 11, 0.2);
+}
+
+/* ─────────────────────────────────────────────
+   PHASE: FADEOUT
+   The logo scales massively into the camera 
+   while fading out, revealing the app behind it
+────────────────────────────────────────────── */
+.phase-fadeout .marvel-logo-wrapper {
+  transform: scale(25); /* EXTREME zoom through the text */
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1), opacity 0.6s ease 0.1s;
+}
+
+.phase-fadeout {
+  background-color: transparent; /* Puts background to clear so App shows */
+  pointer-events: none;
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+────────────────────────────────────────────── */
+@keyframes slowIntroZoom {
+  0% { transform: scale(0.85); }
+  100% { transform: scale(1.15); }
+}
+
+@media (max-width: 768px) {
+  .marvel-text {
+    font-size: 40vw;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.9);
+  }
+}
