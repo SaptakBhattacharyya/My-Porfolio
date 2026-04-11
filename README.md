@@ -3,10 +3,12 @@
 A polished personal portfolio built with React and Vite showcasing my resume, projects, skills, certificates, and education.
 
 ##  Project Overview
-<img width="1919" height="771" alt="image" src="https://github.com/user-attachments/assets/0b46cb6e-d858-471d-9339-26e6ebb048ff" />
+<img width="1911" height="792" alt="image" src="https://github.com/user-attachments/assets/d71acc96-ebd4-49f4-8603-d7cd867dd705" />
 
 
-<img width="1919" height="739" alt="image" src="https://github.com/user-attachments/assets/c9602d73-0307-497c-8d28-3487e9aee3a7" />
+
+<img width="1919" height="864" alt="image" src="https://github.com/user-attachments/assets/5cb47cb0-43ba-481e-bf27-9a71bcdc6b98" />
+
 
 This portfolio is a modern, interactive personal site for:
 - Full-stack development experience
