@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import './Navbar.css';
 
@@ -15,12 +16,20 @@ const navLinks = [
 
 const Navbar = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     const handleNavClick = (e, target) => {
         e.preventDefault();
         setIsOpen(false);
 
-        // Find the bento card element by its data-section attribute
+        // Navigate to the route
+        if (target === 'about' || target === 'skills' || target === 'education' || target === 'certificates' || target === 'contact' || target === 'resume') {
+            navigate(`/${target}`);
+        } else {
+            navigate('/');
+        }
+
+        // Find the bento card element by its data-section attribute (for scrolling/highlighting)
         const el = document.querySelector(`[data-section="${target}"]`);
         if (el) {
             // Smooth scroll into view
@@ -41,13 +50,13 @@ const Navbar = ({ theme, toggleTheme }) => {
                 <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
                     {navLinks.map((link) => (
                         <li key={link.target}>
-                            <a
-                                href={`#${link.target}`}
-                                className="nav-link"
+                            <NavLink
+                                to={`/${link.target}`}
+                                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
                                 onClick={(e) => handleNavClick(e, link.target)}
                             >
                                 {link.label}
-                            </a>
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

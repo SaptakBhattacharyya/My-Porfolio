@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Github, ExternalLink, Youtube } from 'lucide-react';
 import './BentoGrid.css';
 
@@ -77,9 +78,20 @@ const marqueeProjects = [
 const duplicatedProjects = [...marqueeProjects, ...marqueeProjects];
 
 const BentoGrid = () => {
+  const { sectionId } = useParams();
+  const navigate = useNavigate();
   const [activeModal, setActiveModal] = useState(null);
   const [hasScrolledModal, setHasScrolledModal] = useState(false);
   const [glowTarget, setGlowTarget] = useState(null);
+
+  // Synchronize modal state with URL
+  useEffect(() => {
+    if (sectionId) {
+      setActiveModal(sectionId);
+    } else {
+      setActiveModal(null);
+    }
+  }, [sectionId]);
 
   // Listen for nav-highlight events from Navbar
   useEffect(() => {
@@ -104,12 +116,12 @@ const BentoGrid = () => {
   ];
 
   const handleBoxClick = (id) => {
-    setActiveModal(id);
+    navigate(`/${id}`);
     setHasScrolledModal(false);
   };
 
   const closeModal = () => {
-    setActiveModal(null);
+    navigate('/');
     setHasScrolledModal(false);
   };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import { Routes, Route } from 'react-router-dom';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
@@ -68,7 +68,10 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <main>
-        <BentoGrid />
+        <Routes>
+          <Route path="/" element={<BentoGrid />} />
+          <Route path="/:sectionId" element={<BentoGrid />} />
+        </Routes>
       </main>
     </div>
   );
