@@ -1,10 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Calendar, MapPin } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import './Education.css';
 
 const Education = () => {
     return (
+        <>
+        <Helmet>
+            <title>Education | Saptak Bhattacharyya</title>
+            <meta name="description" content="My academic journey in Computer Science and Engineering at Swaminarayan University." />
+        </Helmet>
         <section id="education" className="education-section">
             <div className="container">
                 <motion.div
@@ -56,6 +62,7 @@ const Education = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 

@@ -1,11 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import profileImg from '../assets/profile.png';
 import './Hero.css';
 
 const Hero = () => {
-  return (
+  return ( <>
+  <Helmet>
+        <title>Saptak Bhattacharyya | Portfolio</title>
+        <meta name="description" content="Portfolio of Saptak Bhattacharyya - Full-Stack Developer & UI/UX Designer." />
+      </Helmet>
     <section className="hero-modal-container">
+     
       <div className="hero-modal-content">
         <motion.div
           className="hero-text"
@@ -56,6 +62,7 @@ const Hero = () => {
         </motion.div>
       </div>
     </section>
+    </>
   );
 };
 

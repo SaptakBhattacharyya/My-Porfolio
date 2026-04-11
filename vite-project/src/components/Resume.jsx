@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Download, Mail, Phone, Github, Linkedin, Globe } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import './Resume.css';
 
 const Resume = () => {
@@ -33,6 +34,11 @@ const Resume = () => {
     };
 
     return (
+        <>
+        <Helmet>
+            <title>Resume | Saptak Bhattacharyya</title>
+            <meta name="description" content="Download my professional resume and view my experience, skills, and achievements." />
+        </Helmet>
         <section id="resume" className="resume-section">
             <div className="container">
                 <motion.div
@@ -280,6 +286,7 @@ const Resume = () => {
                 </motion.div>
             </div>
         </section>
+        </>
     );
 };
 

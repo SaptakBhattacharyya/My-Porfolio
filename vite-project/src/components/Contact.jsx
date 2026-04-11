@@ -1,10 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Mail, Phone, Linkedin, Github, Youtube } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import './Contact.css';
 
 const Contact = () => {
     return (
+        <>
+        <Helmet>
+            <title>Contact | Saptak Bhattacharyya</title>
+            <meta name="description" content="Get in touch with me for freelance work, internships, or collaboration opportunities." />
+        </Helmet>
         <section id="contact" className="contact-section">
             <div className="container contact-container">
                 <motion.div
@@ -115,6 +121,7 @@ const Contact = () => {
                 </footer>
             </div>
         </section>
+        </>
     );
 };
 

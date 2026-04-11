@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Youtube } from 'lucide-react';
+import { Helmet } from 'react-helmet';
 import './Projects.css';
 
 const projects = [
@@ -46,6 +47,11 @@ const duplicatedProjects = [...projects, ...projects];
 
 const Projects = () => {
     return (
+        <>
+        <Helmet>
+            <title>Projects | Saptak Bhattacharyya</title>
+            <meta name="description" content="View my latest projects in web development, including full-stack apps and UI clones." />
+        </Helmet>
         <section id="projects" className="projects-section">
             <div className="container">
                 <motion.div
@@ -108,6 +114,7 @@ const Projects = () => {
                 </div>
             </div>
         </section>
+        </>
     );
 };
 

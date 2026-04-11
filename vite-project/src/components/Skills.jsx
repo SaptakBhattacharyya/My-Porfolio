@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import TagCloud from 'TagCloud';
 import { motion } from 'framer-motion';
 import './Skills.css';
@@ -77,6 +78,11 @@ const Skills = () => {
     ];
 
     return (
+        <>
+        <Helmet>
+            <title>Skills | Saptak Bhattacharyya</title>
+            <meta name="description" content="Explore my technical skills in React, Node.js, MongoDB, and UI/UX design." />
+        </Helmet>
         <section id="skills" className="skills-section">
             <div className="skills-container">
                 <motion.div
@@ -145,6 +151,7 @@ const Skills = () => {
                 ))}
             </div>
         </section>
+        </>
     );
 };
 

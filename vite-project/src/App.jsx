@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import BentoGrid from './components/BentoGrid';
@@ -60,6 +61,11 @@ function App() {
 
   return (
     <div className="App">
+      <Helmet>
+        <title>Saptak Bhattacharyya | Portfolio</title>
+        <meta name="description" content="Official portfolio of Saptak Bhattacharyya. Full-stack developer and UI/UX designer specializing in modern web experiences." />
+        <meta name="keywords" content="Portfolio, Saptak Bhattacharyya, Developer, React, Node.js, UI/UX" />
+      </Helmet>
       {!introFinished && <MarvelIntro onComplete={handleIntroComplete} />}
       
       <AnimatedBackground />

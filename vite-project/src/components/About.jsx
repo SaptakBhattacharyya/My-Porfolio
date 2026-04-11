@@ -1,10 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
+import { Helmet } from 'react-helmet';
 import './About.css';
 
 const About = () => {
-    return (
+    return (<>
+        <Helmet>
+            <title>About Me</title>
+            <meta name="this is  all about me " content="Learn About Me" />
+        </Helmet>
         <section id="about" className="about-section">
             <div className="container about-content">
                 <motion.h2
@@ -60,6 +65,7 @@ const About = () => {
                 </motion.div>
             </div>
         </section>
+    </>
     );
 };
 
