@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Mail, Phone, Linkedin, Github, Youtube } from 'lucide-react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 

@@ -5,7 +5,7 @@ import './Certificates.css';
 import cert1 from '../assets/certificate1.png';
 import cert2 from '../assets/certificate2.png';
 import cert3 from '../assets/Screenshot 2026-03-16 112648.png'
-import {Helmet} from 'react-helmet';
+import {Helmet} from 'react-helmet-async';
 const Certificates = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
