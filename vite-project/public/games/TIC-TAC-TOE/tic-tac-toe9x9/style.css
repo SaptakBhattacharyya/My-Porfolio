@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+}
+.container{
+    height: 150vh;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game{
+    height: 120vh;
+    width: 100vh;
+    border: 2px solid red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1vmin;
+}
+.box{
+height: 10vmin;
+width: 10vmin;
+font-size: 80px;
+}

@@ -37,7 +37,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     font-size: 0.9rem;
-    color: #4a5568;
+    color: #1a1a1a;
 }
 
 .resume-contact-row span {
@@ -61,17 +61,17 @@
     align-items: center;
     gap: 0.35rem;
     padding: 0.4rem 1rem;
-    border: 1.5px solid #2d3748;
+    border: 1.5px solid #1a1a1a;
     border-radius: 4px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #2d3748;
+    color: #1a1a1a;
     text-decoration: none;
     transition: all 0.2s ease;
 }
 
 .resume-links-bar a:hover {
-    background: #2d3748;
+    background: #1a1a1a;
     color: #fff;
 }
 
@@ -117,14 +117,14 @@
 .resume-block p {
     font-size: 0.85rem;
     line-height: 1.5;
-    color: #4a5568;
+    color: #1a1a1a;
     margin-bottom: 0.2rem;
 }
 
 .resume-block ul {
     font-size: 0.85rem;
     line-height: 1.5;
-    color: #4a5568;
+    color: #1a1a1a;
     padding-left: 1.2rem;
     margin: 0.2rem 0 0.5rem;
 }
@@ -141,7 +141,7 @@
 .resume-skills-group p {
     font-size: 0.85rem;
     margin-bottom: 0.1rem;
-    color: #2d3748;
+    color: #1a1a1a;
 }
 
 .resume-skills-group ul {
@@ -155,7 +155,7 @@
 }
 
 .cert-list a {
-    color: #4a5568;
+    color: #1a1a1a;
     text-decoration: underline;
     transition: color 0.2s ease;
 }
@@ -185,13 +185,13 @@
 .item-date, .item-skills {
     font-size: 0.78rem;
     font-weight: 600;
-    color: #718096;
+    color: #1a1a1a;
     white-space: nowrap;
 }
 
 .item-sub {
     font-weight: 500;
-    color: #4a5568;
+    color: #1a1a1a;
     font-size: 0.85rem;
     margin-bottom: 0.3rem;
 }
@@ -199,12 +199,12 @@
 /* Project Links Row */
 .resume-project-links {
     font-size: 0.78rem;
-    color: #64748b;
+    color: #1a1a1a;
     margin-top: 0.3rem;
 }
 
 .resume-project-links a {
-    color: #2d3748;
+    color: #1a1a1a;
     text-decoration: underline;
     font-weight: 600;
     transition: color 0.2s ease;
@@ -216,7 +216,7 @@
 
 /* Hackathon win badge */
 .resume-win-badge {
-    color: #4F46E5;
+    color: #1a1a1a;
     font-weight: 700;
 }
 

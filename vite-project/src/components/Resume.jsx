@@ -153,34 +153,33 @@ const Resume = () => {
                                 <h3>HACKATHON</h3>
                                 <div className="resume-item">
                                     <div className="item-header">
-                                        <h4>ElectroSphere 2K26 — <span className="resume-win-badge">1st Place </span></h4>
+                                        <h4>
+                                            <a href="/certificates/electrosphere_proof.jpg" target="_blank" rel="noopener noreferrer" style={{ color: '#1a1a1a', textDecoration: 'underline', cursor: 'pointer' }}>
+                                                ElectroSphere 2K26
+                                            </a>
+                                            {' — '}<span className="resume-win-badge">1st Place </span>
+                                        </h4>
                                         <span className="item-date">Jan 2026</span>
                                     </div>
                                     <div className="item-sub">TechX Club, Swaminarayan University — Software Edition</div>
                                     <ul>
                                         <li>Built a full-stack solution under time constraints, securing 1st place among all participants.</li>
                                     </ul>
-                                    <div className="resume-proof">
-                                        <a href="/certificates/electrosphere_proof.jpg" target="_blank" rel="noopener noreferrer">
-                                            View Proof
-                                        </a>
-                                    </div>
                                 </div>
 
                                 <div className="resume-item">
                                     <div className="item-header">
-                                        <h4>Doppelganger — OpenPools.in</h4>
+                                        <h4>
+                                            <a href="/certificates/doppelganger_proof.png" target="_blank" rel="noopener noreferrer" style={{ color: '#1a1a1a', textDecoration: 'underline', cursor: 'pointer' }}>
+                                                Doppelganger — OpenPools.in
+                                            </a>
+                                        </h4>
                                         <span className="item-date">2026</span>
                                     </div>
                                     <div className="item-sub">OpenPools.in — 30-Hour Collaborative Build Sprint</div>
                                     <ul>
                                         <li>Participated in Doppelganger, a collaborative 30-hour build sprint where teams transformed their Professional DNA into real-world solutions.</li>
                                     </ul>
-                                    <div className="resume-proof">
-                                        <a href="/certificates/doppelganger_proof.png" target="_blank" rel="noopener noreferrer">
-                                            View Proof
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +213,7 @@ const Resume = () => {
                                         <li>Responsive e-commerce clone with product filtering, cart, and seamless checkout UI.</li>
                                     </ul>
                                     <div className="resume-project-links">
-                                        Links: <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                                        Links: <a href="https://github.com/SaptakBhattacharyya/untuckitclone-web6.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
                                     </div>
                                 </div>
 
@@ -276,8 +275,8 @@ const Resume = () => {
                             <div className="resume-block">
                                 <h3>ACHIEVEMENTS</h3>
                                 <ul>
-                                    <li>Completed First Year of B.Tech with academic excellence.</li>
-                                    <li>Successfully organized and participated in several technical hackathons and clubs.</li>
+                                    <li>Completed First Year of B.Tech with an exceptional 8.81 SGPA.</li>
+                                    <li>Actively participated in competitive hackathons and technical events.</li>
                                 </ul>
                             </div>
                         </div>

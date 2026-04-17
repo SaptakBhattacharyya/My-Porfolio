@@ -6,6 +6,11 @@
   --neon-secondary: #8b6508;
   --neon-accent: #daa520;
 
+  /* Enhanced Bright Golden Glows */
+  --bg-glow-primary: #ffd700;
+  --bg-glow-secondary: #ffc107;
+  --bg-glow-accent: #ffeb3b;
+
   --bg-dark: #121212; /* Rich charcoal base */
   --bg-card: #1C1C1E; /* Slightly lighter premium Apple-style card grey */
   --bg-glass: rgba(255, 255, 255, 0.03);
@@ -29,6 +34,10 @@
   /* Deeper Indigo for hover/secondary states */
   --neon-accent: #6366F1;
   /* Lighter Indigo for subtle accents */
+
+  --bg-glow-primary: #4F46E5;
+  --bg-glow-secondary: #4338CA;
+  --bg-glow-accent: #6366F1;
 
   --bg-dark: #F8FAFC;
   /* Icy cool slate background */
@@ -94,7 +103,7 @@ body::before {
   left: -120px;
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, rgba(218, 165, 32, 0.30) 0%, rgba(184, 134, 11, 0.12) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.50) 0%, rgba(255, 193, 7, 0.25) 40%, transparent 70%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
@@ -108,7 +117,7 @@ body::after {
   right: -140px;
   width: 750px;
   height: 750px;
-  background: radial-gradient(circle, rgba(218, 165, 32, 0.25) 0%, rgba(139, 101, 8, 0.10) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.45) 0%, rgba(255, 193, 7, 0.20) 40%, transparent 70%);
   filter: blur(70px);
   pointer-events: none;
   z-index: 0;
@@ -240,37 +249,37 @@ h6 {
 .interactive-blob {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, var(--neon-primary), transparent 60%);
-  opacity: 0.6;
+  background: radial-gradient(circle, var(--bg-glow-primary), transparent 60%);
+  opacity: 0.85;
 }
 
 .ambient-blob-1 {
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, var(--neon-secondary), transparent 70%);
+  background: radial-gradient(circle, var(--bg-glow-secondary), transparent 70%);
   top: -200px;
   right: -200px;
-  opacity: 0.45;
+  opacity: 0.65;
   animation: floatAmbient 15s ease-in-out infinite alternate;
 }
 
 .ambient-blob-2 {
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, var(--neon-accent), transparent 60%);
+  background: radial-gradient(circle, var(--bg-glow-accent), transparent 60%);
   bottom: -300px;
   left: -100px;
-  opacity: 0.35;
+  opacity: 0.55;
   animation: floatAmbient 20s ease-in-out infinite alternate reverse;
 }
 
 .ambient-blob-3 {
   width: 900px;
   height: 900px;
-  background: radial-gradient(circle, var(--neon-primary), transparent 60%);
+  background: radial-gradient(circle, var(--bg-glow-primary), transparent 60%);
   top: 40%;
   left: 30%;
-  opacity: 0.22;
+  opacity: 0.35;
   animation: floatAmbient 25s ease-in-out infinite alternate;
   mix-blend-mode: screen;
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, Calendar, MapPin } from 'lucide-react';
-import { Helmet } from 'react-helmet';
+import SEO from './SEO';
 import './Education.css';
 
 const Education = () => {
     return (
         <>
-        <Helmet>
-            <title>Education | Saptak Bhattacharyya</title>
-            <meta name="description" content="My academic journey in Computer Science and Engineering at Swaminarayan University." />
-        </Helmet>
+        <SEO 
+            title="Education | Saptak Bhattacharyya"
+            description="My academic journey in Computer Science and Engineering at Swaminarayan University."
+        />
         <section id="education" className="education-section">
             <div className="container">
                 <motion.div
@@ -43,6 +43,7 @@ const Education = () => {
                                 <MapPin size={16} style={{ marginRight: '5px' }} />
                                 CodingGita X Swaminarayan University, Kalol, Gujarat
                             </span>
+                            <span className="edu-score">SGPA: 8.81</span>
                         </div>
 
                         <p className="edu-desc" style={{ marginTop: '1.5rem' }}>

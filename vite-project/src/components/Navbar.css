@@ -114,6 +114,78 @@
     cursor: pointer;
 }
 
+/* ─── More Dropdown ─── */
+.nav-item-more {
+    position: relative;
+    display: inline-block;
+}
+
+.more-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.8rem 0;
+}
+
+.chevron {
+    transition: transform 0.3s ease;
+}
+
+.chevron.rotate {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 1rem);
+    right: 0;
+    min-width: 180px;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 0.6rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    z-index: 10000;
+}
+
+[data-theme="light"] .dropdown-menu {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.dropdown-link {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    padding-left: 1.2rem; /* Subtle indent on hover */
+}
+
+[data-theme="light"] .dropdown-link:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--neon-primary);
+}
+
+/* Mobile responsive fixes for dropdown */
 @media (max-width: 1024px) {
     .nav-links {
         display: none;
@@ -126,18 +198,45 @@
         left: 0;
         right: 0;
         flex-direction: column;
-
         background: var(--bg-card);
-        /* Use theme card bg */
         border: 1px solid var(--card-border);
-
         padding: 1.5rem;
         border-radius: 20px;
-        gap: 1.5rem;
+        gap: 1.2rem;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        max-height: 80vh;
+        overflow-y: auto;
     }
 
+    .nav-item-more {
+        width: 100%;
+    }
+
+    .more-btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0.5rem 0;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.03);
+        border: none;
+        box-shadow: none;
+        padding: 0 0 0 1rem;
+        margin-top: 0.5rem;
+    }
+
+    [data-theme="light"] .dropdown-menu {
+        background: rgba(0, 0, 0, 0.02);
+    }
+
+    .dropdown-link {
+        padding: 0.5rem 0;
+    }
+    
     .mobile-toggle {
         display: block;
     }
-}
+}

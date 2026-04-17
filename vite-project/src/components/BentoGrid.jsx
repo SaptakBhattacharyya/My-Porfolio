@@ -13,8 +13,10 @@ import Education from './Education';
 import Resume from './Resume';
 import Contact from './Contact';
 import Hero from './Hero';
+import Hackathons from './Hackathons';
+import Achievements from './Achievements';
 import profileImg from '../assets/profile.png';
-import { User, Code2, Briefcase, GraduationCap, Award, Mail, FileText, Linkedin, Twitter } from 'lucide-react';
+import { User, Code2, Briefcase, GraduationCap, Award, Mail, FileText, Linkedin, Twitter, Trophy, Star } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -28,9 +30,9 @@ const containerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  show: { 
-    opacity: 1, 
-    y: 0, 
+  show: {
+    opacity: 1,
+    y: 0,
     scale: 1,
     transition: { type: 'spring', stiffness: 300, damping: 24 }
   },
@@ -113,6 +115,8 @@ const BentoGrid = () => {
     { id: 'certificates', title: 'Certificates', desc: 'Certified in MERN Stack, UI Design, and Advanced Algorithms.', span: 'col-span-1 row-span-1', type: 'certificates', icon: <Award size={28} /> },
     { id: 'contact', title: 'Contact Me', desc: 'Available for freelance & Internships. Reach out now.', span: 'col-span-1 row-span-1', type: 'contact', icon: <Mail size={28} /> },
     { id: 'resume', title: 'Resume', desc: 'View my detailed resume with skills, hackathons & projects.', span: 'col-span-1 row-span-1', type: 'resume', icon: <FileText size={28} /> },
+    { id: 'hackathons', title: 'Hackathons', desc: 'Competitive programming & hackathon wins, including 1st place in ElectroSphere 2K26.', span: 'col-span-2 row-span-1', type: 'hackathons', icon: <Trophy size={28} /> },
+    { id: 'achievements', title: 'Achievements', desc: 'Academic excellence and university technical milestones.', span: 'col-span-2 row-span-1', type: 'achievements', icon: <Star size={28} /> },
   ];
 
   const handleBoxClick = (id) => {
@@ -135,7 +139,7 @@ const BentoGrid = () => {
 
   return (
     <section className="bento-section">
-      <motion.div 
+      <motion.div
         className="bento-grid"
         variants={containerVariants}
         initial="hidden"
@@ -179,8 +183,8 @@ const BentoGrid = () => {
               <p>{item.desc}</p>
               {item.type === 'hero' && (
                 <div className="bento-hero-cta">
-                  <button 
-                    className="primary-btn" 
+                  <button
+                    className="primary-btn"
                     onClick={(e) => { e.stopPropagation(); handleBoxClick('resume'); }}
                   >
                     View Resume
@@ -205,8 +209,10 @@ const BentoGrid = () => {
         {/* ─── Full-Width Marquee Projects Row ─── */}
         <motion.div
           variants={itemVariants}
-          className={`bento-card col-span-4 bento-marquee-card${glowTarget === 'projects-marquee' ? ' glow-highlight' : ''}`}
-          data-section="projects-marquee"
+          className={`bento-card col-span-4 bento-marquee-card${glowTarget === 'projects' ? ' glow-highlight' : ''}`}
+          data-section="projects"
+          onClick={() => handleBoxClick('projects')}
+          style={{ cursor: 'pointer' }}
         >
           <div className="bento-card-inner marquee-header">
             <div className="bento-icon-wrapper">
@@ -262,7 +268,7 @@ const BentoGrid = () => {
       {/* Modal System */}
       <AnimatePresence>
         {activeModal && (
-          <motion.div 
+          <motion.div
             className="bento-modal-overlay"
             data-lenis-prevent="true"
             onScroll={handleModalScroll}
@@ -285,7 +291,7 @@ const BentoGrid = () => {
               )}
             </AnimatePresence>
 
-            <motion.div 
+            <motion.div
               className="bento-modal-content"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -302,6 +308,8 @@ const BentoGrid = () => {
                 {activeModal === 'contact' && <Contact />}
                 {activeModal === 'resume' && <Resume />}
                 {activeModal === 'intro' && <Hero />}
+                {activeModal === 'hackathons' && <Hackathons />}
+                {activeModal === 'achievements' && <Achievements />}
               </div>
             </motion.div>
           </motion.div>

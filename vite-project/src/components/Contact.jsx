@@ -1,10 +1,39 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Mail, Phone, Linkedin, Github, Youtube } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
+    const form = useRef();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null);
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+        
+        emailjs.sendForm(
+            'service_xpdmi68', // Replace with your Service ID
+            'template_hooqo8c', // Replace with your Template ID
+            form.current,
+            {
+                publicKey: 'TGUizrHpj20M5t6cQ',
+            }
+        )
+        .then((result) => {
+            setIsSubmitting(false);
+            setSubmitStatus('success');
+            e.target.reset();
+            setTimeout(() => setSubmitStatus(null), 5000); // clear message after 5s
+        }, (error) => {
+            setIsSubmitting(false);
+            setSubmitStatus(error?.text || error?.message || 'Unknown network error');
+            console.error("EmailJS Error:", error);
+        });
+    };
     return (
         <>
         <Helmet>
@@ -88,31 +117,44 @@ const Contact = () => {
 
                     {/* Contact Form Side */}
                     <motion.form
+                        ref={form}
                         className="contact-form"
                         initial={{ opacity: 0, x: 80 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ type: 'spring', bounce: 0.4, duration: 0.8, delay: 0.3 }}
                         viewport={{ once: true, margin: '-50px' }}
-                        onSubmit={(e) => e.preventDefault()}
+                        onSubmit={sendEmail}
                     >
                         <div className="form-group">
                             <label>Your Name</label>
-                            <input type="text" placeholder="John Doe" required />
+                            <input type="text" name="user_name" placeholder="John Doe" required />
                         </div>
 
                         <div className="form-group">
                             <label>Your Email</label>
-                            <input type="email" placeholder="john@example.com" required />
+                            <input type="email" name="user_email" placeholder="john@example.com" required />
                         </div>
 
                         <div className="form-group">
                             <label>Message</label>
-                            <textarea placeholder="Tell me about your project..." rows="5" required></textarea>
+                            <textarea name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
                         </div>
 
-                        <button type="submit" className="btn btn-primary submit-btn">
-                            Send Message <Send size={18} style={{ marginLeft: '8px' }} />
+                        <button 
+                            type="submit" 
+                            className="btn btn-primary submit-btn"
+                            disabled={isSubmitting}
+                            style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'not-allowed' : 'pointer' }}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Message'} {!isSubmitting && <Send size={18} style={{ marginLeft: '8px' }} />}
                         </button>
+
+                        {submitStatus === 'success' && (
+                            <p style={{ color: 'var(--neon-primary)', marginTop: '15px', fontSize: '0.9rem', textAlign: 'center', fontWeight: '500' }}>Message sent successfully! I'll get back to you soon.</p>
+                        )}
+                        {submitStatus && submitStatus !== 'success' && (
+                            <p style={{ color: '#ef4444', marginTop: '15px', fontSize: '0.9rem', textAlign: 'center', fontWeight: '500' }}>Error: {submitStatus}</p>
+                        )}
                     </motion.form>
                 </div>
 

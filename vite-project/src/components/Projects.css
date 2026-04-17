@@ -306,3 +306,103 @@
         font-size: 2rem;
     }
 }
+
+/* ─────────────── Filters ─────────────── */
+.project-filters-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.project-filters {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.4rem;
+    border-radius: 50px;
+    position: relative;
+    gap: 0.2rem;
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .project-filters {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-btn:hover {
+    color: var(--text-primary);
+}
+
+.filter-btn.active {
+    color: #000;
+}
+
+[data-theme="light"] .filter-btn.active {
+    color: #fff;
+}
+
+.active-filter-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--neon-primary);
+    border-radius: 50px;
+    z-index: -1;
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.2);
+}
+
+[data-theme="light"] .active-filter-bg {
+    background: var(--primary-color);
+}
+
+/* ─────────────── Projects Grid ─────────────── */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+    justify-items: center;
+    width: 100%;
+}
+
+.marquee-card.static-card {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+}
+
+.no-projects-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    padding: 3rem;
+}
+
+/* ─────────────── Extra Icon Colors ─────────────── */
+.project-link-pm:hover {
+    color: #FF6C37; /* Postman Orange */
+}
+
+.project-link-fg:hover {
+    color: #F24E1E; /* Figma Hue */
+}

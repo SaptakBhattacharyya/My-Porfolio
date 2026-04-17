@@ -1,0 +1,199 @@
+.hackathons-section {
+    padding: 6rem 0;
+    width: 100%;
+}
+
+.hackathons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.hackathon-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.hackathon-card:hover {
+    border-color: var(--neon-primary);
+    transform: translateY(-5px) scale(1.01);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 40px -15px rgba(184, 134, 11, 0.1);
+}
+
+.winner-card {
+    border-color: rgba(212, 175, 55, 0.4);
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.08) 0%, rgba(28, 28, 30, 0.1) 100%);
+    box-shadow: 0 15px 40px -10px rgba(212, 175, 55, 0.2);
+}
+
+.winner-card:hover {
+    border-color: #FFD700;
+    box-shadow: 0 20px 60px -10px rgba(212, 175, 55, 0.35);
+}
+
+.winner-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, #FFD700, #DAA520);
+    color: #000;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.card-header {
+    margin-bottom: 1rem;
+    padding-right: 100px; /* Space for the absolute badge */
+}
+
+.card-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #fff;
+    font-family: var(--font-heading);
+}
+
+[data-theme="light"] .card-header h3 {
+    color: #1a1a1a;
+}
+
+.placement-text {
+    font-size: 1rem;
+    color: var(--neon-primary);
+    font-weight: 600;
+}
+
+.winner-card .placement-text {
+    color: #DAA520;
+}
+
+.card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .card-meta {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: #a0aec0;
+}
+
+[data-theme="light"] .meta-item {
+    color: #4a5568;
+}
+
+.card-desc {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+[data-theme="light"] .card-desc {
+    color: #2d3748;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.proof-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+[data-theme="light"] .proof-btn {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: #1a1a1a;
+}
+
+.proof-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="light"] .proof-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.5);
+}
+
+.winner-card .proof-btn {
+    border-color: rgba(212, 175, 55, 0.4);
+    color: #DAA520;
+}
+
+.winner-card .proof-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #DAA520;
+    color: #FFD700;
+}
+
+/* Light Theme overrides for hackathons */
+[data-theme="light"] .hackathon-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .winner-card {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+}
+
+@media (max-width: 768px) {
+    .card-header h3 {
+        font-size: 1.4rem;
+    }
+    
+    .winner-badge {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 1rem;
+        align-self: flex-start;
+    }
+    
+    .card-header {
+        padding-right: 0;
+    }
+}
