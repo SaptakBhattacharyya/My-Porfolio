@@ -8,17 +8,17 @@ export const hackathonsData = [
     tech: ["React.js", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
     result: "1st Place (Winner)",
     project: "MERN Stack Application",
-    proofUrl: "/certificates/electrosphere_proof.jpg"
+    proofUrl: "/certificates/ElectroSphere.html"
   },
   {
-    event: "Doppelganger",
-    organizer: "OpenPools.in",
-    date: "2026",
+    event: "Vibe-2-Vision (36-Hour Hackathon)",
+    organizer: "IEEE VSSUT Student Branch · IEEE SHE ASPIRE 3.0",
+    date: "July 2026",
     teamSize: "Collaborative Team Sprint",
-    problem: "Transform professional design profiles and developer DNA into functional software landing solutions in a 30-hour build sprint.",
-    tech: ["HTML", "CSS", "JavaScript", "Animation"],
+    problem: "Architect and develop an AI-powered predictive telemetry and safety platform under a continuous 36-hour sprint.",
+    tech: ["React.js", "Node.js", "MongoDB", "Telemetry APIs"],
     result: "Participant",
-    project: "DNA Identity Showcase Mockup",
-    proofUrl: "/certificates/doppelganger_proof.png"
+    project: "SafeSphere AI",
+    proofUrl: "/certificates/Vibe_To_Vision.html"
   }
 ];

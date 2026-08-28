@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FiDownload, FiMail, FiPhone, FiGithub, FiLinkedin, FiGlobe } from 'react-icons/fi';
+import { FiDownload } from 'react-icons/fi';
 import './Resume.css';
 
 export default function Resume() {
@@ -12,32 +12,26 @@ export default function Resume() {
 
   return (
     <section id="resume" className="resume-section">
-      {/* =====================================================
-          PRINT CSS — single-page A4 PDF with clickable links
-          Strategy:
-            1. Use @page margin: 0 to hide browser headers/footers
-            2. Apply clean 12mm padding inside container to prevent clipping
-            3. Hide non-resume sections completely
-            4. Adjust root font-size to utilize the full page area
-         ===================================================== */}
+      {/* Print CSS for single-page A4 PDF output */}
       <style dangerouslySetInnerHTML={{ __html: `
         @media print {
           @page {
             size: A4 portrait;
-            margin: 0 !important; /* Hides browser headers, footers, page numbers & dates */
+            margin: 0 !important;
           }
 
-          /* ── 1. Hide everything under #root except main ── */
-          #root > *:not(main) {
-            display: none !important;
+          * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
 
-          /* ── 2. Hide everything under main except #resume ── */
+          /* Hide everything outside the resume */
+          #root > *:not(main),
+          nav, footer, .no-print,
           main > *:not(#resume) {
             display: none !important;
           }
 
-          /* ── 3. Reset margins/paddings on all wrappers ── */
           html, body, #root, main, #resume, #resume .container {
             margin: 0 !important;
             padding: 0 !important;
@@ -55,363 +49,317 @@ export default function Resume() {
             display: block !important;
           }
 
-          /* ── 4. Hide screen-only components ── */
-          .no-print {
-            display: none !important;
-          }
-
-          /* ── 5. Set root font-size to utilize A4 page height ── */
-          html {
-            font-size: 14.5px !important; /* Scales all rem-based styling in Resume.css to fill page */
-          }
-
-          /* ── 6. Safety padding on document card to act as page margins ── */
-          #resume-printable {
-            width: 100% !important;
-            max-width: 100% !important;
+          .resume-section {
+            padding: 0 !important;
             margin: 0 !important;
-            padding: 15mm 16mm !important; /* Page margins applied inside layout to protect content */
+            background: #fff !important;
+          }
+
+          #resume-printable {
+            width: 210mm !important;
+            min-height: 297mm !important;
+            max-height: 297mm !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
             box-shadow: none !important;
             border: none !important;
             background: #fff !important;
             color: #1a1a1a !important;
-            opacity: 1 !important;
-            transform: none !important;
-            visibility: visible !important;
             box-sizing: border-box !important;
+            overflow: hidden !important;
+            page-break-after: avoid !important;
+            page-break-inside: avoid !important;
           }
 
-          /* ── 7. Force Two-Column Layout (overrides max-width: 768px mobile rules) ── */
-          .resume-two-col {
-            display: grid !important;
-            grid-template-columns: 1fr 1fr !important;
-            gap: 1.8rem !important;
+          /* Maintain exact 2-column layout in print mode */
+          .resume-body {
+            display: flex !important;
+            flex-direction: row !important;
           }
 
           .resume-col-left {
-            border-right: 1px solid #e2e8f0 !important;
-            padding-right: 1.8rem !important;
+            width: 42% !important;
+            padding: 20px 18px 18px 30px !important;
+            border-right: 1.5px solid #ddd !important;
             border-bottom: none !important;
-            padding-bottom: 0 !important;
-            margin-bottom: 0 !important;
           }
 
           .resume-col-right {
-            padding-left: 0.5rem !important;
-            border-top: none !important;
-            padding-top: 0 !important;
-            margin-top: 0 !important;
+            width: 58% !important;
+            padding: 20px 30px 18px 18px !important;
           }
 
-          .resume-contact-row {
+          .resume-header-top {
             display: flex !important;
-            justify-content: center !important;
-            gap: 2rem !important;
-            flex-wrap: nowrap !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
           }
 
-          .resume-links-bar {
-            display: flex !important;
-            justify-content: center !important;
-            gap: 1.2rem !important;
-            flex-wrap: nowrap !important;
+          .resume-header-contact {
+            text-align: right !important;
           }
 
-          /* ── 8. Spread the spacing out to fill vertical height ── */
-          .resume-block {
-            margin-bottom: 1.4rem !important;
-          }
-
-          .resume-item {
-            margin-bottom: 0.9rem !important;
-          }
-
-          .resume-header {
-            margin-bottom: 1.2rem !important;
-            padding-bottom: 1.2rem !important;
-          }
-
-          .resume-divider {
-            margin: 0.8rem 0 1.8rem !important;
-          }
-
-          .resume-block ul li {
-            margin-bottom: 0.35rem !important;
-          }
-
-          /* ── 9. Page break rules ── */
-          #resume-printable * {
-            page-break-inside: avoid !important;
+          a {
+            color: #1a1a1a !important;
+            text-decoration: underline !important;
           }
         }
       `}} />
 
       <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         
-        {/* Header Block (Screen Only — hidden on print) */}
+        {/* Section Header (Screen only) */}
         <motion.div
           className="section-header no-print"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
-          transition={{ type: 'spring', bounce: 0.4, duration: 0.8 }}
-          style={{ textAlign: 'center', marginBottom: '2rem' }}
+          transition={{ type: 'spring', bounce: 0.3, duration: 0.8 }}
+          style={{ textAlign: 'center', marginBottom: '2.5rem' }}
         >
-          <h2 style={{ fontSize: '2.5rem', fontWeight: 900, color: '#F5F4F3' }}>
+          <h2 style={{ fontSize: '2.4rem', fontWeight: 900, color: '#F5F4F3', letterSpacing: '-0.5px' }}>
             My <span style={{ color: '#E5A93B' }}>Resume</span>
           </h2>
-          <p style={{ color: '#A8ADB5', marginTop: '0.5rem', fontSize: '0.9rem' }}>
-            A printable summary of my professional experience and skills.
+          <p style={{ color: '#A8ADB5', marginTop: '0.4rem', fontSize: '0.95rem' }}>
+            A comprehensive overview of my experience, technical skills, and achievements.
           </p>
           <button 
             className="print-btn" 
             onClick={handleDownload} 
             style={{ 
-              marginTop: '1.5rem', 
+              marginTop: '1.25rem', 
               display: 'inline-flex', 
               alignItems: 'center', 
               gap: '0.5rem',
               backgroundColor: '#E5A93B',
               color: '#090D11',
               border: 'none',
-              padding: '0.6rem 1.5rem',
+              padding: '0.65rem 1.6rem',
               borderRadius: '6px',
-              fontWeight: 'bold',
+              fontWeight: '700',
+              fontSize: '0.9rem',
               cursor: 'pointer',
-              transition: 'opacity 0.2s ease',
+              boxShadow: '0 4px 14px rgba(229, 169, 59, 0.35)',
+              transition: 'all 0.2s ease',
             }}
-            onMouseOver={(e) => e.currentTarget.style.opacity = 0.9}
-            onMouseOut={(e) => e.currentTarget.style.opacity = 1}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(229, 169, 59, 0.45)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(229, 169, 59, 0.35)';
+            }}
           >
             <FiDownload size={18} /> Download PDF
           </button>
         </motion.div>
 
-        {/* Document Container — plain div, NOT motion.div, so framer-motion
-             never injects opacity:0 inline styles that break printing */}
+        {/* Printable Resume Sheet */}
         <div
           ref={resumeRef}
           id="resume-printable"
-          className="resume-document"
+          className="resume-page"
         >
-          {/* Header */}
+          {/* HEADER */}
           <div className="resume-header">
-            <h1>SAPTAK BHATTACHARYYA</h1>
-            <div className="resume-contact-row">
-              <span><FiPhone size={14} /> +91 6290232029</span>
-              <span><FiMail size={14} /> saptak.bhattacharyya.cg@gmail.com</span>
+            <div className="resume-header-top">
+              <div className="resume-header-name">
+                <h1>SAPTAK BHATTACHARYYA</h1>
+                <div className="resume-title">Full Stack Web Developer</div>
+              </div>
+              <div className="resume-header-contact">
+                <div><a href="mailto:saptak.bhattacharyya.cg@gmail.com">saptak.bhattacharyya.cg@gmail.com</a></div>
+                <div><a href="tel:6290232029">+91 6290232029</a></div>
+                <div>Ahmedabad, Gujarat, India</div>
+              </div>
+            </div>
+            <div className="resume-header-links">
+              <a href="https://www.linkedin.com/in/saptak-bhattacharyya-06aa05388/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/SaptakBhattacharyya" target="_blank" rel="noopener noreferrer">Github</a>
+              <a href="https://youtube.com/@saptak-codez" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://saptak-bhattacharyya-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Portfolio</a>
+              <a href="https://leetcode.com/u/SaptakBhattacharyyaCodez/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+              <a href="https://x.com/SaptakCodez" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
           </div>
 
-          {/* Profile Links Bar */}
-          <div className="resume-links-bar">
-            <a href="https://github.com/SaptakBhattacharyya" target="_blank" rel="noopener noreferrer">
-              <FiGithub size={14} /> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/saptak-bhattacharyya-06aa05388/" target="_blank" rel="noopener noreferrer">
-              <FiLinkedin size={14} /> LinkedIn
-            </a>
-            <a href="https://saptak-bhattacharyya-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <FiGlobe size={14} /> Portfolio
-            </a>
-            <a href="https://leetcode.com/u/SaptakBhattacharyyaCodez/" target="_blank" rel="noopener noreferrer">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/></svg>
-              LeetCode
-            </a>
-            <a href="https://x.com/SaptakCodez" target="_blank" rel="noopener noreferrer">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              Twitter
-            </a>
-            <a href="https://www.youtube.com/@Saptak-codez" target="_blank" rel="noopener noreferrer">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              YouTube
-            </a>
-          </div>
+          {/* BODY: two columns */}
+          <div className="resume-body">
 
-          <hr className="resume-divider" />
-
-          {/* Two Column Layout */}
-          <div className="resume-two-col">
-            
-            {/* Left Column */}
+            {/* LEFT COLUMN */}
             <div className="resume-col-left">
-              
-              {/* Skills */}
-              <div className="resume-block">
-                <h3>SKILLS</h3>
-                <div className="resume-skills-group">
-                  <p><strong>Frontend:</strong> HTML5, CSS3, React.js, Next.js, Responsive Design</p>
+
+              {/* SKILLS */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Skills</div>
+                <div className="resume-skill-group">
+                  <div className="resume-skill-label">Languages &amp; Frameworks</div>
+                  <div className="resume-skill-value">JavaScript (ES6+), C++, C, Python, React.js, React Native, Node.js, Express.js, Tailwind CSS, HTML5, CSS3</div>
                 </div>
-                <div className="resume-skills-group">
-                  <p><strong>Backend:</strong> Node.js, Express.js, RESTful APIs, JWT Auth</p>
+                <div className="resume-skill-group">
+                  <div className="resume-skill-label">Databases &amp; Backend</div>
+                  <div className="resume-skill-value">MongoDB, REST APIs, Express.js, JWT, SQL</div>
                 </div>
-                <div className="resume-skills-group">
-                  <p><strong>Languages:</strong> JavaScript, C, C++, Python</p>
+                <div className="resume-skill-group">
+                  <div className="resume-skill-label">Tools &amp; Platforms</div>
+                  <div className="resume-skill-value">Git, GitHub, VS Code, Postman, Figma, Vercel, Netlify, Render, npm, Vite</div>
                 </div>
-                <div className="resume-skills-group">
-                  <p><strong>Database:</strong> MongoDB, MySQL (Basic)</p>
-                </div>
-                <div className="resume-skills-group">
-                  <p><strong>Tools:</strong> Git, GitHub, Postman, VS Code, Vercel, Netlify</p>
+                <div className="resume-skill-group">
+                  <div className="resume-skill-label">Specialized</div>
+                  <div className="resume-skill-value">MERN Stack, UI/UX Design</div>
                 </div>
               </div>
 
-              {/* Education */}
-              <div className="resume-block">
-                <h3>EDUCATION</h3>
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>CodingGita X Swaminarayan University</h4>
-                    <span className="item-date">2025 – 2029</span>
+              {/* HACKATHONS & AWARDS */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Hackathons &amp; Awards</div>
+
+                <div className="resume-hack-item">
+                  <div className="resume-hack-num">1. Winner (1st Place) — ElectroSphere 2K26</div>
+                  <div className="resume-hack-meta">Software Edition | January 2026<br/>TechX Club, Swaminarayan University</div>
+                  <div className="resume-hack-desc">Secured <strong>1st Place</strong> in ElectroSphere 2K26 as core developer, building a full-stack MERN application under rigorous sprint constraints.</div>
+                  <div className="resume-hack-links">
+                    <a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">Certificate</a>
                   </div>
-                  <div className="item-sub">B.Tech in Computer Science &amp; Engineering</div>
                 </div>
-              </div>
 
-              {/* Languages */}
-              <div className="resume-block">
-                <h3>LANGUAGES</h3>
-                <p style={{ marginTop: '0.2rem' }}>
-                  English — Fluent | Bengali — Native | Hindi — Proficient
-                </p>
-              </div>
-
-              {/* Hackathons */}
-              <div className="resume-block">
-                <h3>HACKATHON</h3>
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>
-                      {/* Portable absolute URL link so it remains clickable offline in print PDFs */}
-                      <a href="https://saptak-bhattacharyya-portfolio.vercel.app/certificates/electrosphere_proof.jpg" target="_blank" rel="noopener noreferrer" style={{ color: '#1a1a1a', textDecoration: 'underline', cursor: 'pointer' }}>
-                        ElectroSphere 2K26
-                      </a>
-                      {' — '}<span className="resume-win-badge">1st Place </span>
-                    </h4>
-                    <span className="item-date">Jan 2026</span>
+                <div className="resume-hack-item">
+                  <div className="resume-hack-num">2. Participant — Vibe-2-Vision Hackathon</div>
+                  <div className="resume-hack-meta">36-Hour Hackathon | July 2026<br/>IEEE VSSUT Student Branch · IEEE SHE ASPIRE 3.0</div>
+                  <div className="resume-hack-desc">Participated in 36-hour national sprint, developing <strong>SafeSphere AI</strong>, a predictive women's safety platform with automated telemetry alerts and live guardian tracking.</div>
+                  <div className="resume-hack-links">
+                    <a href="/certificates/Vibe_To_Vision.html" target="_blank" rel="noopener noreferrer">Certificate</a>
                   </div>
-                  <div className="item-sub">TechX Club, Swaminarayan University — Software Edition</div>
-                  <ul>
-                    <li>Built a full-stack solution under time constraints, securing 1st place among all participants.</li>
-                  </ul>
-                </div>
-
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>
-                      <a href="https://saptak-bhattacharyya-portfolio.vercel.app/certificates/doppelganger_proof.png" target="_blank" rel="noopener noreferrer" style={{ color: '#1a1a1a', textDecoration: 'underline', cursor: 'pointer' }}>
-                        Doppelganger — OpenPools.in
-                      </a>
-                    </h4>
-                    <span className="item-date">2026</span>
-                  </div>
-                  <div className="item-sub">OpenPools.in — 30-Hour Collaborative Build Sprint</div>
-                  <ul>
-                    <li>Participated in Doppelganger, a collaborative 30-hour build sprint where teams transformed their Professional DNA into real-world solutions.</li>
-                  </ul>
                 </div>
               </div>
-            </div>
 
-            {/* Right Column */}
+              {/* EDUCATION */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Education</div>
+                <div className="resume-edu-item">
+                  <span className="resume-edu-year">2025 – 2029</span>
+                  <div className="resume-edu-school">SwamiNarayan Institute of Technology</div>
+                  <div className="resume-edu-degree">
+                    Swaminarayan University, Kalol<br/>
+                    Bachelor of Technology (B.Tech) in Computer Science &amp; Engineering<br/>
+                    Currently in 3rd Semester (2nd Year) | Academic Score: <strong>CGPA: 8.84</strong><br/>
+                    Coursework: Data Structures, Algorithms, DBMS, OOP, Web Architecture
+                  </div>
+                </div>
+              </div>
+
+              {/* INTERESTS & STRENGTHS */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Interests &amp; Strengths</div>
+                <ul className="resume-summary-list">
+                  <li>Passionate about building modern, responsive, and performance-driven web applications</li>
+                  <li>Strong problem-solving mindset with 250+ DSA problems solved on LeetCode</li>
+                  <li>Focused on building scalable full-stack architectures, clean RESTful APIs, and database efficiency</li>
+                  <li>Enjoy crafting immersive digital experiences and interactive animations</li>
+                  <li>Believe great software is built directly at the intersection of clean, modular code and thoughtful design</li>
+                  <li>Goal is to relentlessly keep learning, actively contribute to meaningful projects, and collaboratively grow</li>
+                </ul>
+              </div>
+
+            </div>{/* /resume-col-left */}
+
+            {/* RIGHT COLUMN */}
             <div className="resume-col-right">
-              
-              {/* Projects */}
-              <div className="resume-block">
-                <h3>PROJECTS</h3>
 
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>Med-Remind</h4>
-                    <span className="item-skills">React · Node.js · MongoDB · JWT</span>
-                  </div>
-                  <ul>
-                    <li>Full-stack healthcare app for medication management with user auth and health dashboard.</li>
-                  </ul>
-                  <div className="resume-project-links">
-                    Links: <a href="https://github.com/codinggita/medremind.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://medremind-z2yo.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                  </div>
-                </div>
-
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>UNTUCKit Clone</h4>
-                    <span className="item-skills">HTML · CSS · JavaScript</span>
-                  </div>
-                  <ul>
-                    <li>Responsive e-commerce clone with product filtering, cart, and seamless checkout UI.</li>
-                  </ul>
-                  <div className="resume-project-links">
-                    Links: <a href="https://github.com/SaptakBhattacharyya/untuckitclone-web6.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267untuckitweb6.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                  </div>
-                </div>
-
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>Lazarev Agency Webpage Clone</h4>
-                    <span className="item-skills">HTML · CSS</span>
-                  </div>
-                  <ul>
-                    <li>This project is a frontend clone of the Lazarev design agency homepage.</li>
-                  </ul>
-                  <div className="resume-project-links">
-                    Links: <a href="https://github.com/SaptakBhattacharyya/frontend-Lazarev-Digital-Product-Design-Agency-Webpage.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://lazarev-frontend-webpage-saptak.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                  </div>
-                </div>
-
-                <div className="resume-item">
-                  <div className="item-header">
-                    <h4>Decure Interior Clone</h4>
-                    <span className="item-skills">HTML · CSS · Animation</span>
-                  </div>
-                  <ul>
-                    <li>Pixel-perfect interior design clone with smooth animations and premium UI.</li>
-                  </ul>
-                  <div className="resume-project-links">
-                    Links: <a href="https://github.com/SaptakBhattacharyya/decure-web5.git" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://saptak108267decurewebclone5.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                  </div>
-                </div>
-              </div>
-
-              {/* Certifications */}
-              <div className="resume-block">
-                <h3>CERTIFICATIONS</h3>
-                <ul className="cert-list">
-                  <li>
-                    <a href="https://saptak-bhattacharyya-portfolio.vercel.app/certificates/Intro_to_C.html" target="_blank" rel="noopener noreferrer">
-                      Introduction to C
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://saptak-bhattacharyya-portfolio.vercel.app/certificates/Generative_AI.html" target="_blank" rel="noopener noreferrer">
-                      Introduction to Generative AI
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://saptak-bhattacharyya-portfolio.vercel.app/certificates/Data_Science_Analytics.html" target="_blank" rel="noopener noreferrer">
-                      Data Science & Analytics
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://saptak-bhattacharyya-portfolio.vercel.app/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">
-                      ElectroSphere 2K26 (1st Place)
-                    </a>
-                  </li>
+              {/* EXPERTISE & SUMMARY */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Expertise &amp; Summary</div>
+                <ul className="resume-summary-list">
+                  <li>Full Stack Web Developer &amp; UI/UX Designer currently in 3rd semester (2nd year) building modern dynamic web applications</li>
+                  <li>Specialized heavily in the robust <strong>MERN Stack (MongoDB, Express, React, Node.js)</strong> ecosystem</li>
+                  <li>Architected full-stack platforms including <strong>Med-Remind</strong> (Healthcare), <strong>Employee Hub</strong>, and live interactive web apps</li>
+                  <li>Achieved <strong>1st Place in ElectroSphere 2K26 Hackathon</strong> and solved 250+ algorithmic data structure problems on LeetCode</li>
+                  <li>Experienced in end-to-end continuous deployment workflows across Vercel, Netlify, Render, and GitHub Actions</li>
                 </ul>
               </div>
 
-              {/* Achievements */}
-              <div className="resume-block">
-                <h3>ACHIEVEMENTS</h3>
-                <ul>
-                  <li>Completed First Year of B.Tech with an exceptional 8.81 SGPA.</li>
-                  <li>Actively participated in competitive hackathons and technical events.</li>
+              {/* CERTIFICATIONS */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Certifications</div>
+                <div className="resume-cert-grid">
+                  <div className="resume-cert-item"><span className="resume-cert-num">1.</span><a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">ElectroSphere 2K26 (1st Place)</a></div>
+                  <div className="resume-cert-item"><span className="resume-cert-num">2.</span><a href="https://res.cloudinary.com/e2gnvesl/image/upload/v1787719810/Screenshot_2026-08-26_101914_pupzj4.png" target="_blank" rel="noopener noreferrer">Data Analysis</a></div>
+                  <div className="resume-cert-item"><span className="resume-cert-num">3.</span><a href="https://www.sololearn.com/certificates/CC-ISU4JILV" target="_blank" rel="noopener noreferrer">Certification on C (SoloLearn)</a></div>
+                  <div className="resume-cert-item"><span className="resume-cert-num">4.</span><a href="/certificates/Frontend_React.html" target="_blank" rel="noopener noreferrer">Frontend Developer (React)</a></div>
+                </div>
+              </div>
+
+              {/* EXPERIENCE */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Experience</div>
+                <div className="resume-exp-title">Full-Stack Developer &amp; Web Engineer</div>
+                <div className="resume-exp-date">2025 – Present &nbsp;|&nbsp; Freelance / Personal Projects</div>
+                <ul className="resume-exp-list">
+                  <li>Engineered end-to-end full-stack web architectures smoothly utilizing React.js, Node.js, Express.js &amp; MongoDB frameworks</li>
+                  <li>Developed strongly scalable RESTful API endpoints and globally deployed live applications natively on Vercel, Netlify &amp; Render</li>
+                  <li>Skillfully designed responsive, component-driven UI systems with Tailwind CSS, and custom styling</li>
+                  <li>Reliably delivered optimized production-grade software platform solutions actively operating under strict intensive hackathon sprint environments safely</li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+              {/* PROJECTS */}
+              <div className="resume-section-block">
+                <div className="resume-section-title">Projects</div>
+
+                <div className="resume-project-item">
+                  <div className="resume-project-header">
+                    <div className="resume-project-name"><span className="resume-project-num">1.</span>Med-Remind</div>
+                    <div className="resume-project-links">
+                      <a href="https://medremind-z2yo.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://github.com/codinggita/medremind.git" target="_blank" rel="noopener noreferrer">Github</a>
+                    </div>
+                  </div>
+                  <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · JWT</div>
+                  <div className="resume-project-desc">Comprehensive healthcare reminder application featuring real-time medication logging, custom calendar scheduler, and interactive dashboard health analytics.</div>
+                </div>
+
+                <div className="resume-project-item">
+                  <div className="resume-project-header">
+                    <div className="resume-project-name"><span className="resume-project-num">2.</span>Employee Hub</div>
+                    <div className="resume-project-links">
+                      <a href="https://employees-dataset-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://github.com/SaptakBhattacharyya/employees_dataset_saptak_bhattacharyya.git" target="_blank" rel="noopener noreferrer">Github</a>
+                    </div>
+                  </div>
+                  <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Tailwind CSS</div>
+                  <div className="resume-project-desc">Full-stack employee management platform with role-based access control, real-time employee search, dynamic CRUD operations, and system health monitoring.</div>
+                </div>
+
+                <div className="resume-project-item">
+                  <div className="resume-project-header">
+                    <div className="resume-project-name"><span className="resume-project-num">3.</span>OmniRetail</div>
+                    <div className="resume-project-links">
+                      <a href="https://omni2-0-ymx3.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://github.com/SaptakBhattacharyya/omni2.0.git" target="_blank" rel="noopener noreferrer">Github</a>
+                    </div>
+                  </div>
+                  <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Redis</div>
+                  <div className="resume-project-desc">Phygital commerce platform with multi-store inventory synchronization, automated order routing, and real-time inventory management.</div>
+                </div>
+
+                <div className="resume-project-item">
+                  <div className="resume-project-header">
+                    <div className="resume-project-name"><span className="resume-project-num">4.</span>Smart Field Survey App</div>
+                    <div className="resume-project-links">
+                      <a href="https://youtu.be/QXnwBrve-BQ" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://github.com/SaptakBhattacharyya/Smart-Field-Survey-Inspection-App-React-Native.git" target="_blank" rel="noopener noreferrer">Github</a>
+                    </div>
+                  </div>
+                  <div className="resume-project-tech">React Native · Expo · Node.js · MongoDB</div>
+                  <div className="resume-project-desc">Mobile survey and inspection suite supporting GPS location tracking, offline-first data capture, media audits, and automated inspection reporting.</div>
+                </div>
+              </div>
+
+            </div>{/* /resume-col-right */}
+          </div>{/* /resume-body */}
+        </div>{/* /resume-page */}
+      </div>{/* /container */}
     </section>
   );
 }

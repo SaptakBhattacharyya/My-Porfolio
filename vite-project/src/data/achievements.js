@@ -19,11 +19,11 @@ export const achievementsData = [
   },
   {
     title: "LeetCode DSA Milestone",
-    subtitle: "300+ Problems Solved",
+    subtitle: "250+ Problems Solved",
     category: "Coding",
-    description: "Solved over 300 data structure and algorithm questions on Leetcode, refining problem solving skills in dynamic programming and array logic.",
+    description: "Solved over 250 data structure and algorithm questions on Leetcode, refining problem solving skills in dynamic programming and array logic.",
     proofUrl: "https://leetcode.com/u/SaptakBhattacharyyaCodez/",
-    statValue: 300,
+    statValue: 250,
     statSuffix: "+"
   },
   {

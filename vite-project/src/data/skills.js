@@ -36,7 +36,6 @@ export const skillsData = {
       title: "Languages",
       skills: [
         { name: "JavaScript", icon: FaJs, color: "#F7DF1E", desc: "ES6+, closures, and asynchronous flows" },
-        { name: "TypeScript", icon: SiTypescript, color: "#3178C6", desc: "Static typing and robust OOP" },
         { name: "C++", icon: SiCplusplus, color: "#00599C", desc: "Pointers, structures, and DSA algorithms" },
       ]
     },
