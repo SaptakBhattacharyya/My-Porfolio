@@ -258,7 +258,6 @@ export default function Resume() {
                   <li>Focused on building scalable full-stack architectures, clean RESTful APIs, and database efficiency</li>
                   <li>Enjoy crafting immersive digital experiences and interactive animations</li>
                   <li>Believe great software is built directly at the intersection of clean, modular code and thoughtful design</li>
-                  <li>Goal is to relentlessly keep learning, actively contribute to meaningful projects, and collaboratively grow</li>
                 </ul>
               </div>
 
@@ -273,7 +272,7 @@ export default function Resume() {
                 <ul className="resume-summary-list">
                   <li>Full Stack Web Developer &amp; UI/UX Designer currently in 3rd semester (2nd year) building modern dynamic web applications</li>
                   <li>Specialized heavily in the robust <strong>MERN Stack (MongoDB, Express, React, Node.js)</strong> ecosystem</li>
-                  <li>Architected full-stack platforms including <strong>Med-Remind</strong> (Healthcare), <strong>Employee Hub</strong>, and live interactive web apps</li>
+                  <li>Architected full-stack platforms including <strong>OmniRetail</strong> (Phygital Commerce), <strong>Employee Hub</strong>, and mobile survey suites</li>
                   <li>Achieved <strong>1st Place in ElectroSphere 2K26 Hackathon</strong> and solved 250+ algorithmic data structure problems on LeetCode</li>
                   <li>Experienced in end-to-end continuous deployment workflows across Vercel, Netlify, Render, and GitHub Actions</li>
                 </ul>
@@ -299,7 +298,6 @@ export default function Resume() {
                   <li>Engineered end-to-end full-stack web architectures smoothly utilizing React.js, Node.js, Express.js &amp; MongoDB frameworks</li>
                   <li>Developed strongly scalable RESTful API endpoints and globally deployed live applications natively on Vercel, Netlify &amp; Render</li>
                   <li>Skillfully designed responsive, component-driven UI systems with Tailwind CSS, and custom styling</li>
-                  <li>Reliably delivered optimized production-grade software platform solutions actively operating under strict intensive hackathon sprint environments safely</li>
                 </ul>
               </div>
 
@@ -309,14 +307,14 @@ export default function Resume() {
 
                 <div className="resume-project-item">
                   <div className="resume-project-header">
-                    <div className="resume-project-name"><span className="resume-project-num">1.</span>Med-Remind</div>
+                    <div className="resume-project-name"><span className="resume-project-num">1.</span>OmniRetail</div>
                     <div className="resume-project-links">
-                      <a href="https://medremind-z2yo.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                      <a href="https://github.com/codinggita/medremind.git" target="_blank" rel="noopener noreferrer">Github</a>
+                      <a href="https://omni2-0-ymx3.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://github.com/SaptakBhattacharyya/omni2.0.git" target="_blank" rel="noopener noreferrer">Github</a>
                     </div>
                   </div>
-                  <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · JWT</div>
-                  <div className="resume-project-desc">Comprehensive healthcare reminder application featuring real-time medication logging, custom calendar scheduler, and interactive dashboard health analytics.</div>
+                  <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Redis · Tailwind CSS</div>
+                  <div className="resume-project-desc">Architected a phygital retail commerce platform featuring automated multi-store inventory synchronization, sub-millisecond Redis catalog caching, automated order routing, and secure JWT-based admin access control. Engineered interactive analytics dashboards for inventory threshold alerts, tracking real-time stock turnover and optimizing fulfillment across omnichannel store locations.</div>
                 </div>
 
                 <div className="resume-project-item">
@@ -328,31 +326,19 @@ export default function Resume() {
                     </div>
                   </div>
                   <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Tailwind CSS</div>
-                  <div className="resume-project-desc">Full-stack employee management platform with role-based access control, real-time employee search, dynamic CRUD operations, and system health monitoring.</div>
+                  <div className="resume-project-desc">Engineered an enterprise workforce management platform with Role-Based Access Control (RBAC), multi-parameter search filtering, scalable paginated CRUD operations, CSV data export, and server health telemetry monitoring. Optimized MongoDB indexing to achieve sub-50ms query latency across extensive employee directories, while designing a responsive modular UI for seamless admin workflows.</div>
                 </div>
 
                 <div className="resume-project-item">
                   <div className="resume-project-header">
-                    <div className="resume-project-name"><span className="resume-project-num">3.</span>OmniRetail</div>
-                    <div className="resume-project-links">
-                      <a href="https://omni2-0-ymx3.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
-                      <a href="https://github.com/SaptakBhattacharyya/omni2.0.git" target="_blank" rel="noopener noreferrer">Github</a>
-                    </div>
-                  </div>
-                  <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Redis</div>
-                  <div className="resume-project-desc">Phygital commerce platform with multi-store inventory synchronization, automated order routing, and real-time inventory management.</div>
-                </div>
-
-                <div className="resume-project-item">
-                  <div className="resume-project-header">
-                    <div className="resume-project-name"><span className="resume-project-num">4.</span>Smart Field Survey App</div>
+                    <div className="resume-project-name"><span className="resume-project-num">3.</span>Smart Field Survey App</div>
                     <div className="resume-project-links">
                       <a href="https://youtu.be/QXnwBrve-BQ" target="_blank" rel="noopener noreferrer">Live</a>
                       <a href="https://github.com/SaptakBhattacharyya/Smart-Field-Survey-Inspection-App-React-Native.git" target="_blank" rel="noopener noreferrer">Github</a>
                     </div>
                   </div>
-                  <div className="resume-project-tech">React Native · Expo · Node.js · MongoDB</div>
-                  <div className="resume-project-desc">Mobile survey and inspection suite supporting GPS location tracking, offline-first data capture, media audits, and automated inspection reporting.</div>
+                  <div className="resume-project-tech">React Native · Expo · Node.js · MongoDB · GPS Telemetry</div>
+                  <div className="resume-project-desc">Developed a cross-platform mobile inspection suite with offline-first local data synchronization, real-time GPS location audits, on-device image compression, and automated PDF compliance inspection report generation. Built background synchronization mechanisms ensuring zero telemetry data loss in low-connectivity zones, alongside end-to-end digital signature sign-offs for certified audits.</div>
                 </div>
               </div>
 
