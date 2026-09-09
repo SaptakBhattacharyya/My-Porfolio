@@ -220,7 +220,7 @@ export default function Resume() {
                   <div className="resume-hack-meta">Software Edition | January 2026<br/>TechX Club, Swaminarayan University</div>
                   <div className="resume-hack-desc">Secured <strong>1st Place</strong> in ElectroSphere 2K26 as core developer, building a full-stack MERN application under rigorous sprint constraints.</div>
                   <div className="resume-hack-links">
-                    <a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">Certificate</a>
+                    <a href="https://res.cloudinary.com/e2gnvesl/image/upload/v1788951227/Screenshot_2026-09-09_162141_qfk7pg.png" target="_blank" rel="noopener noreferrer">Certificate</a>
                   </div>
                 </div>
 
@@ -229,7 +229,7 @@ export default function Resume() {
                   <div className="resume-hack-meta">36-Hour Hackathon | July 2026<br/>IEEE VSSUT Student Branch · IEEE SHE ASPIRE 3.0</div>
                   <div className="resume-hack-desc">Participated in 36-hour national sprint, developing <strong>SafeSphere AI</strong>, a predictive women's safety platform with automated telemetry alerts and live guardian tracking.</div>
                   <div className="resume-hack-links">
-                    <a href="/certificates/Vibe_To_Vision.html" target="_blank" rel="noopener noreferrer">Certificate</a>
+                    <a href="https://res.cloudinary.com/e2gnvesl/image/upload/v1787725881/Screenshot_2026-08-26_120036_ph5ore.png" target="_blank" rel="noopener noreferrer">Certificate</a>
                   </div>
                 </div>
               </div>
@@ -283,10 +283,10 @@ export default function Resume() {
               <div className="resume-section-block">
                 <div className="resume-section-title">Certifications</div>
                 <div className="resume-cert-grid">
-                  <div className="resume-cert-item"><span className="resume-cert-num">1.</span><a href="/certificates/ElectroSphere.html" target="_blank" rel="noopener noreferrer">ElectroSphere 2K26 (1st Place)</a></div>
+                  <div className="resume-cert-item"><span className="resume-cert-num">1.</span><a href="https://res.cloudinary.com/e2gnvesl/image/upload/v1788951227/Screenshot_2026-09-09_162141_qfk7pg.png" target="_blank" rel="noopener noreferrer">ElectroSphere 2K26 (1st Place)</a></div>
                   <div className="resume-cert-item"><span className="resume-cert-num">2.</span><a href="https://res.cloudinary.com/e2gnvesl/image/upload/v1787719810/Screenshot_2026-08-26_101914_pupzj4.png" target="_blank" rel="noopener noreferrer">Data Analysis</a></div>
                   <div className="resume-cert-item"><span className="resume-cert-num">3.</span><a href="https://www.sololearn.com/certificates/CC-ISU4JILV" target="_blank" rel="noopener noreferrer">Certification on C (SoloLearn)</a></div>
-                  <div className="resume-cert-item"><span className="resume-cert-num">4.</span><a href="/certificates/Frontend_React.html" target="_blank" rel="noopener noreferrer">Frontend Developer (React)</a></div>
+                  <div className="resume-cert-item"><span className="resume-cert-num">4.</span><a href="https://res.cloudinary.com/e2gnvesl/image/upload/v1787719487/Screenshot_2026-08-26_100936_bhfqmr.png" target="_blank" rel="noopener noreferrer">Frontend Developer (React)</a></div>
                 </div>
               </div>
 
