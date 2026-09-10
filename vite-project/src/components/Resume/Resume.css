@@ -422,3 +422,20 @@
     text-align: left;
   }
 }
+
+/* ── PRINT RULES (Prevent duplicate underlines in PDF) ── */
+@media print {
+  .resume-page a,
+  .resume-header-links a,
+  .resume-hack-links a,
+  .resume-cert-item a,
+  .resume-project-links a,
+  .resume-header-contact a,
+  a {
+    border-bottom: none !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 2.5px !important;
+    padding-bottom: 0 !important;
+  }
+}

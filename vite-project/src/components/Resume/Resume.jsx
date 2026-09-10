@@ -99,9 +99,19 @@ export default function Resume() {
             text-align: right !important;
           }
 
-          a {
+          a,
+          .resume-page a,
+          .resume-header-links a,
+          .resume-hack-links a,
+          .resume-cert-item a,
+          .resume-project-links a,
+          .resume-header-contact a {
             color: #1a1a1a !important;
             text-decoration: underline !important;
+            text-decoration-thickness: 1px !important;
+            text-underline-offset: 2.5px !important;
+            border-bottom: none !important;
+            padding-bottom: 0 !important;
           }
         }
       `}} />
