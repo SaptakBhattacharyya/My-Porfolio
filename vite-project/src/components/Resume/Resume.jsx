@@ -282,7 +282,7 @@ export default function Resume() {
                 <ul className="resume-summary-list">
                   <li>Full Stack Web Developer &amp; UI/UX Designer currently in 3rd semester (2nd year) building modern dynamic web applications</li>
                   <li>Specialized heavily in the robust <strong>MERN Stack (MongoDB, Express, React, Node.js)</strong> ecosystem</li>
-                  <li>Architected full-stack platforms including <strong>OmniRetail</strong> (Phygital Commerce), <strong>Employee Hub</strong>, and mobile survey suites</li>
+                  <li>Architected full-stack platforms including <strong>OmniRetail</strong> (Phygital Commerce), <strong>Employee Hub</strong>, and <strong>CampusFlow</strong></li>
                   <li>Achieved <strong>1st Place in ElectroSphere 2K26 Hackathon</strong> and solved 250+ algorithmic data structure problems on LeetCode</li>
                   <li>Experienced in end-to-end continuous deployment workflows across Vercel, Netlify, Render, and GitHub Actions</li>
                 </ul>
@@ -343,19 +343,30 @@ export default function Resume() {
                     </div>
                   </div>
                   <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Tailwind CSS</div>
-                  <div className="resume-project-desc">Engineered an enterprise workforce management platform with Role-Based Access Control (RBAC), multi-parameter search filtering, scalable paginated CRUD operations, CSV data export, and server health telemetry monitoring. Optimized MongoDB indexing to achieve sub-50ms query latency across extensive employee directories, while designing a responsive modular UI for seamless admin workflows.</div>
+                  <ul className="resume-project-desc">
+                    <li>Engineered workforce platform with Role-Based Access Control (RBAC).</li>
+                    <li>Built multi-parameter search &amp; dynamic filtering for employee records.</li>
+                    <li>Optimized MongoDB indexing achieving sub-50ms latency on queries.</li>
+                    <li>Implemented bulk CSV data export and real-time server health monitoring.</li>
+                    <li>Designed responsive modular admin UI using React.js and Tailwind CSS.</li>
+                  </ul>
                 </div>
 
                 <div className="resume-project-item">
                   <div className="resume-project-header">
-                    <div className="resume-project-name"><span className="resume-project-num">3.</span>Smart Field Survey App</div>
+                    <div className="resume-project-name"><span className="resume-project-num">3.</span>CampusFlow</div>
                     <div className="resume-project-links">
-                      <a href="https://youtu.be/QXnwBrve-BQ" target="_blank" rel="noopener noreferrer">Live</a>
-                      <a href="https://github.com/SaptakBhattacharyya/Smart-Field-Survey-Inspection-App-React-Native.git" target="_blank" rel="noopener noreferrer">Github</a>
+                      <a href="https://github.com/SaptakBhattacharyya/CampusFlow-reactNative.git" target="_blank" rel="noopener noreferrer">Github</a>
                     </div>
                   </div>
-                  <div className="resume-project-tech">React Native · Expo · Node.js · MongoDB · GPS Telemetry</div>
-                  <div className="resume-project-desc">Developed a cross-platform mobile inspection suite with offline-first local data synchronization, real-time GPS location audits, on-device image compression, and automated PDF compliance inspection report generation. Built background synchronization mechanisms ensuring zero telemetry data loss in low-connectivity zones, alongside end-to-end digital signature sign-offs for certified audits.</div>
+                  <div className="resume-project-tech">React Native · Expo · Node.js · Express.js · MongoDB · Clerk</div>
+                  <ul className="resume-project-desc">
+                    <li>Engineered campus issue ticketing &amp; workflow management mobile suite.</li>
+                    <li>Implemented secure multi-role auth (Student, Support, Admin) using Clerk.</li>
+                    <li>Built real-time grievance submission with category filtering &amp; tracking.</li>
+                    <li>Designed admin triage dashboard for status resolution &amp; escalation.</li>
+                    <li>Crafted fluid cross-platform UI with Expo Router &amp; drawer navigation.</li>
+                  </ul>
                 </div>
               </div>
 
