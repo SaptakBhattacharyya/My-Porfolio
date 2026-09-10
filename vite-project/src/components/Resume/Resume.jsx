@@ -326,8 +326,11 @@ export default function Resume() {
                   </div>
                   <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Redis · Tailwind CSS</div>
                   <ul className="resume-project-desc">
-                    <li>Architected a phygital retail commerce platform featuring automated multi-store inventory synchronization, sub-millisecond Redis catalog caching, automated order routing, and secure JWT-based admin access control.</li>
-                    <li>Engineered interactive analytics dashboards for inventory threshold alerts, tracking real-time stock turnover and optimizing fulfillment across omnichannel store locations.</li>
+                    <li>Architected phygital retail platform with multi-store inventory sync.</li>
+                    <li>Integrated Redis catalog caching achieving sub-millisecond response times.</li>
+                    <li>Engineered automated order routing with secure JWT-based access control.</li>
+                    <li>Built interactive analytics dashboard for stock turnover &amp; threshold alerts.</li>
+                    <li>Designed comprehensive RESTful API suite documented via Postman collections.</li>
                   </ul>
                 </div>
 
