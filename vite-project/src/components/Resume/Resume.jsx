@@ -320,11 +320,15 @@ export default function Resume() {
                     <div className="resume-project-name"><span className="resume-project-num">1.</span>OmniRetail</div>
                     <div className="resume-project-links">
                       <a href="https://omni2-0-ymx3.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://documenter.getpostman.com/view/50841251/2sBXqJLLqV" target="_blank" rel="noopener noreferrer">Docs</a>
                       <a href="https://github.com/SaptakBhattacharyya/omni2.0.git" target="_blank" rel="noopener noreferrer">Github</a>
                     </div>
                   </div>
                   <div className="resume-project-tech">React.js · Node.js · Express.js · MongoDB · Redis · Tailwind CSS</div>
-                  <div className="resume-project-desc">Architected a phygital retail commerce platform featuring automated multi-store inventory synchronization, sub-millisecond Redis catalog caching, automated order routing, and secure JWT-based admin access control. Engineered interactive analytics dashboards for inventory threshold alerts, tracking real-time stock turnover and optimizing fulfillment across omnichannel store locations.</div>
+                  <ul className="resume-project-desc">
+                    <li>Architected a phygital retail commerce platform featuring automated multi-store inventory synchronization, sub-millisecond Redis catalog caching, automated order routing, and secure JWT-based admin access control.</li>
+                    <li>Engineered interactive analytics dashboards for inventory threshold alerts, tracking real-time stock turnover and optimizing fulfillment across omnichannel store locations.</li>
+                  </ul>
                 </div>
 
                 <div className="resume-project-item">
