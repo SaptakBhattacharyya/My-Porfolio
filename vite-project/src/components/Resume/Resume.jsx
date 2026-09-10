@@ -361,11 +361,11 @@ export default function Resume() {
                   </div>
                   <div className="resume-project-tech">React Native · Expo · Node.js · Express.js · MongoDB · Clerk</div>
                   <ul className="resume-project-desc">
-                    <li>Engineered campus issue ticketing &amp; workflow management mobile suite.</li>
-                    <li>Implemented secure multi-role auth (Student, Support, Admin) using Clerk.</li>
-                    <li>Built real-time grievance submission with category filtering &amp; tracking.</li>
-                    <li>Designed admin triage dashboard for status resolution &amp; escalation.</li>
-                    <li>Crafted fluid cross-platform UI with Expo Router &amp; drawer navigation.</li>
+                    <li>Built campus issue reporting system with live GPS and photo attachments.</li>
+                    <li>Implemented 3-tier RBAC (User, Support, Admin) using Clerk &amp; JWT security.</li>
+                    <li>Created support desk queue with technician assignment &amp; lifecycle tracking.</li>
+                    <li>Built admin dashboard tracking resolution velocity &amp; campus KPI metrics.</li>
+                    <li>Engineered cross-platform client using Expo Router, Drawer &amp; Bottom Tabs.</li>
                   </ul>
                 </div>
               </div>
