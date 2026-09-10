@@ -339,6 +339,7 @@ export default function Resume() {
                     <div className="resume-project-name"><span className="resume-project-num">2.</span>Employee Hub</div>
                     <div className="resume-project-links">
                       <a href="https://employees-dataset-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                      <a href="https://documenter.getpostman.com/view/50841251/2sBXwntBts" target="_blank" rel="noopener noreferrer">Docs</a>
                       <a href="https://github.com/SaptakBhattacharyya/employees_dataset_saptak_bhattacharyya.git" target="_blank" rel="noopener noreferrer">Github</a>
                     </div>
                   </div>
